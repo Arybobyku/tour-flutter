@@ -16,6 +16,7 @@
 *.iws
 .idea/
 .fvm/
+.fvm/flutter_sdk/
 .fvm
 
 # Visual Studio Code related
