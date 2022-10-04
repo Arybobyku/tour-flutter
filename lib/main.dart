@@ -10,64 +10,42 @@ import 'package:tour/setup_locator.dart';
 import 'package:provider/provider.dart';
 
 void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
   configureInjection();
   await SystemChrome.setPreferredOrientations(
     [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown],
   );
   setupLocator().then((value) {
-  runApp(MyApp());
-    runApp(const MyApp());
+    runApp(MyApp());
   });
 }
 
 
-setUpNotification()async{
-  final AndroidInitializationSettings initializationSettingsAndroid =
-  AndroidInitializationSettings('app_icon');
-
-  final IOSInitializationSettings initializationSettingsIOS =
-  IOSInitializationSettings(
-    requestSoundPermission: false,
-    requestBadgePermission: false,
-    requestAlertPermission: false,
-  );
-
-  final InitializationSettings initializationSettings =
-  InitializationSettings(
-      android: initializationSettingsAndroid,
-      iOS: initializationSettingsIOS,
-      macOS: null);
-}
-
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
+  // This menu is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-      ],
-      child: GetMaterialApp(
-        builder: EasyLoading.init(),
-        navigatorKey: Get.key,
-        debugShowCheckedModeBanner: false,
-        color: ColorPalette.generalBackgroundColor,
-        title: 'Tour',
-        initialRoute: Routes.navigator,
-        getPages: Routes.newRoutes,
-        theme: ThemeData(
-          primaryColor: ColorPalette.generalPrimaryColor,
-          backgroundColor: ColorPalette.generalBackgroundColor,
-          appBarTheme: AppBarTheme(
-            color: ColorPalette.generalPrimaryColor,
-            iconTheme: IconThemeData(
-              color: ColorPalette.generalPrimaryColor
-            )
-          ),
-
-          fontFamily: 'ubuntu',
+    return GetMaterialApp(
+      builder: EasyLoading.init(),
+      navigatorKey: Get.key,
+      debugShowCheckedModeBanner: false,
+      color: ColorPalette.generalSoftGrey,
+      title: 'Tour',
+      initialRoute: Routes.navigator,
+      getPages: Routes.newRoutes,
+      theme: ThemeData(
+        primaryColor: ColorPalette.generalPrimaryColor,
+        backgroundColor: ColorPalette.generalSoftGrey,
+        appBarTheme: AppBarTheme(
+          color: ColorPalette.generalPrimaryColor,
+          iconTheme: IconThemeData(
+            color: ColorPalette.generalPrimaryColor
+          )
         ),
+
+        fontFamily: 'ubuntu',
       ),
     );
   }

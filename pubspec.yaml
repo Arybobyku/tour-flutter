@@ -21,11 +21,7 @@ dependencies:
   flutter_easyloading:
   rflutter_alert:
   flutter_svg:
-  cloud_firestore:
   file_picker: ^4.6.1
-#  firebase_storage:
-#  firebase_auth:
-#  firebase_core:
   google_fonts:
   get:
   intl:
@@ -43,7 +39,7 @@ dependencies:
   modal_bottom_sheet:
   download_assets: ^3.0.0
   webview_flutter:
-#  firebase_auth_platform_interface: 6.1.10
+  font_awesome_flutter:
 
 dev_dependencies:
   flutter_test:

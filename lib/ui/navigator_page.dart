@@ -32,25 +32,26 @@ class _NavigatorPageState extends State<NavigatorPage> {
   }
 
   navigated(BuildContext context) async {
-    Get.offAllNamed(Routes.mainMenu);
+
     // var storageService = locator<LocalStorageService>();
     // var role = storageService.getIntFromPref(Constants.role);
     // String? userJson = storageService.getStringFromPref(Constants.userModel);
     //
     // var mainMenu = await FirebaseAuth.instance.currentUser??null;
     //
-    // await Future.delayed(const Duration(seconds: 2), () async {
-    //   if (mainMenu==null) {
-    //     Get.offAllNamed(Routes.login);
-    //   } else if(role==1){
-    //     UserModel userModel = UserModel.fromjson(jsonDecode(userJson!), mainMenu.uid);
-    //     Provider.of<AuthProvider>(context,listen: false).setUserModelFromPref(userModel);
-    //     Get.offAllNamed(Routes.adminInfo);
-    //   }else{
-    //     UserModel? userModel = UserModel.fromjson(jsonDecode(userJson!), mainMenu.uid);
-    //     Provider.of<AuthProvider>(context,listen: false).setUserModelFromPref(userModel);
-    //     Get.offAllNamed(Routes.mainMenu);
-    //   }
-    // });
+    await Future.delayed(const Duration(seconds: 2), () async {
+      Get.offAllNamed(Routes.mainMenu);
+      // if (mainMenu==null) {
+      //   Get.offAllNamed(Routes.login);
+      // } else if(role==1){
+      //   UserModel userModel = UserModel.fromjson(jsonDecode(userJson!), mainMenu.uid);
+      //   Provider.of<AuthProvider>(context,listen: false).setUserModelFromPref(userModel);
+      //   Get.offAllNamed(Routes.adminInfo);
+      // }else{
+      //   UserModel? userModel = UserModel.fromjson(jsonDecode(userJson!), mainMenu.uid);
+      //   Provider.of<AuthProvider>(context,listen: false).setUserModelFromPref(userModel);
+      //   Get.offAllNamed(Routes.mainMenu);
+      // }
+    });
   }
 }

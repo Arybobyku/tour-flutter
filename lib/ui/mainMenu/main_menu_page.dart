@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tour/helper/color_palette.dart';
-import 'package:tour/ui/mainMenu/widget/main_menu_book_page.dart';
-import 'package:tour/ui/mainMenu/widget/main_menu_destination_page.dart';
-import 'package:tour/ui/mainMenu/widget/main_menu_home_page.dart';
+import 'package:tour/ui/mainMenu/menu/mainMenuBook/main_menu_book_page.dart';
+
+import 'menu/mainMenuDestination/main_menu_destination_page.dart';
+import 'menu/mainMenuFavorite/main_menu_favorite_page.dart';
+import 'menu/mainMenuHome/main_menu_home_page.dart';
 class MainMenuPage extends StatefulWidget {
   const MainMenuPage({Key? key}) : super(key: key);
 
@@ -15,13 +18,6 @@ class _MainMenuPageState extends State<MainMenuPage> {
   int _selectedIndex = 0;
   bool getData = true;
 
-  @override
-  void initState() {
-    if(getData){
-      getData = false;
-    }
-    super.initState();
-  }
 
 
 
@@ -34,6 +30,7 @@ class _MainMenuPageState extends State<MainMenuPage> {
   static List<Widget> _pageption = <Widget>[
     MainMenuHomePage(),
     MainMenuDestinationPage(),
+    MainMenuFavoritePage(),
     MainMenuBookPage(),
   ];
   @override
@@ -42,23 +39,28 @@ class _MainMenuPageState extends State<MainMenuPage> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
         type: BottomNavigationBarType.fixed,
-        backgroundColor: ColorPalette.generalPrimaryColor,
-        selectedItemColor: ColorPalette.generalWhite,
-        unselectedItemColor: Colors.grey,
+        backgroundColor: Colors.white,
+        selectedItemColor: ColorPalette.generalPrimaryColor,
+        unselectedItemColor: ColorPalette.generalGrey,
+        showUnselectedLabels: false,
         onTap: (index){
           _onItemTap(index);
         },
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home,),
+            icon: FaIcon(FontAwesomeIcons.home,size: 18,),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.travel_explore),
+            icon: FaIcon(FontAwesomeIcons.map,size: 18,),
             label: 'Explore',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.book_sharp),
+            icon: FaIcon(FontAwesomeIcons.heart,size: 18,),
+            label: 'Favorite',
+          ),
+          BottomNavigationBarItem(
+            icon: FaIcon(FontAwesomeIcons.book,size: 18,),
             label: 'Comic',
           ),
         ],
