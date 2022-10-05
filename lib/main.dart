@@ -31,13 +31,13 @@ class MyApp extends StatelessWidget {
       builder: EasyLoading.init(),
       navigatorKey: Get.key,
       debugShowCheckedModeBanner: false,
-      color: ColorPalette.generalSoftGrey,
+      color: ColorPalette.generalBackgroundSoftColor,
       title: 'Tour',
       initialRoute: Routes.navigator,
       getPages: Routes.newRoutes,
       theme: ThemeData(
         primaryColor: ColorPalette.generalPrimaryColor,
-        backgroundColor: ColorPalette.generalSoftGrey,
+        backgroundColor: ColorPalette.generalBackgroundSoftColor,
         appBarTheme: AppBarTheme(
           color: ColorPalette.generalPrimaryColor,
           iconTheme: IconThemeData(

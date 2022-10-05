@@ -39,7 +39,6 @@ class _MainMenuPageState extends State<MainMenuPage> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
         type: BottomNavigationBarType.fixed,
-        backgroundColor: Colors.white,
         selectedItemColor: ColorPalette.generalPrimaryColor,
         unselectedItemColor: ColorPalette.generalGrey,
         showUnselectedLabels: false,
