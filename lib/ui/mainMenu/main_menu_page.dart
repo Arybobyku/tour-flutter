@@ -52,11 +52,11 @@ class _MainMenuPageState extends State<MainMenuPage> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: FaIcon(FontAwesomeIcons.map,size: 18,),
+            icon: FaIcon(FontAwesomeIcons.solidMap,size: 18,),
             label: 'Explore',
           ),
           BottomNavigationBarItem(
-            icon: FaIcon(FontAwesomeIcons.heart,size: 18,),
+            icon: FaIcon(FontAwesomeIcons.solidHeart,size: 18,),
             label: 'Favorite',
           ),
           BottomNavigationBarItem(

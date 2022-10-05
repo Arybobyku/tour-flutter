@@ -10,7 +10,8 @@ class ColorPalette{
 
 
   static const Color generalDarkGrey = Color(0xFF838383);
-  static const Color generalBackgroundColor = Color(0xFFebf1f8);
+  static const Color generalTextGrey = Color(0xFFF6F9FB);
+  static const Color generalBackgroundColor = Color(0xFFFBFEFE);
   static const Color generalPrimaryColor = Color(0xffCD104D);
   static const Color generalSecondaryColor = Color(0xFFDF7861);
   static const Color generalThirdColor = Color(0xFFECB390);
