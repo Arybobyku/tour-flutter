@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:tour/helper/color_palette.dart';
-import 'package:tour/helper/constants.dart';
-import 'package:tour/ui/widget/input_field_rounded.dart';
+import 'package:jezioto/helper/color_palette.dart';
+import 'package:jezioto/helper/constants.dart';
+import 'package:jezioto/ui/widget/input_field_rounded.dart';
 
 class SearchBar extends StatelessWidget {
   const SearchBar(

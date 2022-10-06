@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:tour/helper/color_palette.dart';
-import 'package:tour/routes.dart';
+import 'package:jezioto/helper/color_palette.dart';
+import 'package:jezioto/routes.dart';
 import 'package:lottie/lottie.dart';
 
 class NavigatorPage extends StatefulWidget {

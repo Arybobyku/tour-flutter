@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:tour/helper/color_palette.dart';
-import 'package:tour/ui/mainMenu/menu/mainMenuBook/main_menu_book_page.dart';
+import 'package:jezioto/helper/color_palette.dart';
+import 'package:jezioto/ui/mainMenu/menu/mainMenuBook/main_menu_book_page.dart';
 
 import 'menu/mainMenuDestination/main_menu_destination_page.dart';
 import 'menu/mainMenuFavorite/main_menu_favorite_page.dart';

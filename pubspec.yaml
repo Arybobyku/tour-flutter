@@ -1,4 +1,4 @@
-name: tour
+name: jezioto
 description: A new Flutter application.
 
 
@@ -17,6 +17,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   provider:
   shared_preferences:
+  month_year_picker: ^0.2.0+2
   cached_network_image:
   flutter_easyloading:
   rflutter_alert:

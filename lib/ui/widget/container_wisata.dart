@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:tour/helper/color_palette.dart';
+import 'package:jezioto/helper/color_palette.dart';
 
 class ContainerWisata extends StatelessWidget {
   const ContainerWisata({Key? key}) : super(key: key);
@@ -26,8 +26,7 @@ class ContainerWisata extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           CachedNetworkImage(
-            imageUrl:
-                "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0b/15/17/81/hotspring-pangururan.jpg?w=700&h=-1&s=1",
+            imageUrl:"https://asset.kompas.com/crops/0ETwDNboQb6zTRChJupwAFyuL8I=/1x0:780x519/750x500/data/photo/2022/05/27/6290af78e6f38.jpg",
             imageBuilder: (context, imageProvider) => Container(
               width: 200,
               margin: EdgeInsets.only(left: 10, right: 10, top: 10),
@@ -42,7 +41,13 @@ class ContainerWisata extends StatelessWidget {
                 image: DecorationImage(image: imageProvider, fit: BoxFit.cover),
               ),
             ),
-            placeholder: (context, url) => CircularProgressIndicator(),
+            placeholder: (context, url) => Container(
+              child: SizedBox(
+                height: 30,
+                width: 30,
+                child: CircularProgressIndicator(),
+              ),
+            ),
             errorWidget: (context, url, error) => Icon(Icons.error),
           ),
           SizedBox(height: 5),

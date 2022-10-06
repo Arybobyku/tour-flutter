@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tour/helper/color_palette.dart';
+import 'package:jezioto/helper/color_palette.dart';
 import 'package:intl/intl.dart';
 
 class Constants{

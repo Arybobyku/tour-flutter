@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tour/helper/color_palette.dart';
-import 'package:tour/helper/constants.dart';
+import 'package:jezioto/helper/color_palette.dart';
+import 'package:jezioto/helper/constants.dart';
 
 class SmallButton extends StatelessWidget {
   final String text;

@@ -1,4 +1,4 @@
-package com.dartdroid.tour
+package com.dartdroid.jezioto
 
 import io.flutter.embedding.android.FlutterActivity
 

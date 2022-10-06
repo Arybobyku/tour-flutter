@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
-import 'package:tour/ui/navigator_page.dart';
-import 'package:tour/ui/web_view.dart';
+import 'package:jezioto/ui/navigator_page.dart';
+import 'package:jezioto/ui/web_view.dart';
 
 import 'ui/mainMenu/main_menu_page.dart';
 

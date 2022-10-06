@@ -3,10 +3,10 @@ import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get/get.dart';
-import 'package:tour/helper/color_palette.dart';
-import 'package:tour/injection.dart';
-import 'package:tour/routes.dart';
-import 'package:tour/setup_locator.dart';
+import 'package:jezioto/helper/color_palette.dart';
+import 'package:jezioto/injection.dart';
+import 'package:jezioto/routes.dart';
+import 'package:jezioto/setup_locator.dart';
 import 'package:provider/provider.dart';
 
 void main() async{
