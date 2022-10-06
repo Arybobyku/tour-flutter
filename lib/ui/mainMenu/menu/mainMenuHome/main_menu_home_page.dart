@@ -1,7 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
 import 'package:jezioto/helper/color_palette.dart';
+import 'package:jezioto/helper/dummy.dart';
+import 'package:jezioto/routes.dart';
 import 'package:jezioto/ui/widget/container_wisata.dart';
 import 'package:jezioto/ui/widget/search_bar.dart';
 import 'package:jezioto/ui/widget/slider_container.dart';
@@ -23,10 +26,13 @@ class _MainMenuHomePageState extends State<MainMenuHomePage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               _header(),
+              SizedBox(height: 10),
+              _aspect(),
               SizedBox(height: 25),
               _slider(),
               SizedBox(height: 25),
               _recommended(),
+              SizedBox(height: 25),
             ],
           ),
         ),
@@ -41,41 +47,96 @@ class _MainMenuHomePageState extends State<MainMenuHomePage> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(height: 20),
-          Text(
-            "Welcome, Boby ",
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          SizedBox(
-            height: 4,
-          ),
           Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Expanded(
-                flex: 2,
-                child: Text(
-                  "Discover The beauty of Indonesia",
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: ColorPalette.generalDarkGrey,
-                  ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Welcome, Boby ",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 4,
+                    ),
+                    Text(
+                      "Discover the beauty of Indonesia",
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: ColorPalette.generalDarkGrey,
+                      ),
+                    ),
+                  ],
                 ),
               ),
-              Expanded(
-                child: SizedBox(),
-              ),
+              Container(
+                padding: EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                    color: ColorPalette.generalPrimaryColor,
+                    shape: BoxShape.circle),
+                child: Text(
+                  "B",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20),
+                ),
+              )
             ],
           ),
-          SizedBox(
-            height: 20,
-          ),
-          SearchBar(
-            title: "Search destination...",
-            enable: false,
+          SizedBox(height: 20),
+          GestureDetector(
+            onTap: () => _gotoSearchPage(),
+            child: SearchBar(
+              title: "Search destination...",
+              enable: false,
+            ),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget _aspect() {
+    return Container(
+      height: 36,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: dummyAspect.length,
+        itemBuilder: (context, index) {
+          var name = dummyAspect[index];
+          return Padding(
+            padding: EdgeInsets.only(
+                left: index == 0 ? 20 : 8,
+                right: index == dummyAspect.length - 1 ? 20 : 0),
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(20),
+                border: Border.all(
+                  color: ColorPalette.generalGrey,
+                ),
+              ),
+              alignment: Alignment.center,
+              child: Row(
+                children: [
+                  FaIcon(
+                    FontAwesomeIcons.peopleLine,
+                    size: 15,
+                  ),
+                  SizedBox(width: 6),
+                  Text(name),
+                ],
+              ),
+            ),
+          );
+        },
       ),
     );
   }
@@ -85,13 +146,16 @@ class _MainMenuHomePageState extends State<MainMenuHomePage> {
       height: 200,
       child: PageView.builder(
         scrollDirection: Axis.horizontal,
-        controller: PageController(
-          viewportFraction: 0.9
-        ),
+        controller: PageController(viewportFraction: 0.9),
         itemCount: 4,
         itemBuilder: (context, index) {
-          return Padding(padding: EdgeInsets.only(left: 5,right: 10),
-          child: SliderContainer());
+          return Padding(
+            padding: EdgeInsets.only(left: 5, right: 10),
+            child: GestureDetector(
+              onTap: () => _gotoDetailTourPage(),
+              child: SliderContainer(),
+            ),
+          );
         },
       ),
     );
@@ -130,12 +194,25 @@ class _MainMenuHomePageState extends State<MainMenuHomePage> {
               return Container(
                 margin: EdgeInsets.only(
                     left: 20, bottom: 10, top: 10, right: index == 3 ? 20 : 0),
-                child: ContainerWisata(),
+                child: GestureDetector(
+                  onTap: () {
+                    _gotoDetailTourPage();
+                  },
+                  child: ContainerWisata(),
+                ),
               );
             },
           ),
         ),
       ],
     );
+  }
+
+  _gotoSearchPage() {
+    Get.toNamed(Routes.search);
+  }
+
+  _gotoDetailTourPage() {
+    Get.toNamed(Routes.detailTour);
   }
 }
