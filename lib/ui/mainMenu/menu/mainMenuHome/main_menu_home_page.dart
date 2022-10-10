@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:jezioto/helper/color_palette.dart';
 import 'package:jezioto/helper/dummy.dart';
 import 'package:jezioto/routes.dart';
+import 'package:jezioto/ui/widget/container_left_image_comic.dart';
 import 'package:jezioto/ui/widget/container_wisata.dart';
 import 'package:jezioto/ui/widget/search_bar.dart';
 import 'package:jezioto/ui/widget/slider_container.dart';
@@ -32,6 +33,8 @@ class _MainMenuHomePageState extends State<MainMenuHomePage> {
               _slider(),
               SizedBox(height: 25),
               _recommended(),
+              SizedBox(height: 25),
+              _theStoryOf(),
               SizedBox(height: 25),
             ],
           ),
@@ -205,6 +208,46 @@ class _MainMenuHomePageState extends State<MainMenuHomePage> {
           ),
         ),
       ],
+    );
+  }
+
+  Widget _theStoryOf() {
+    return Container(
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    "The Story of Pangururan",
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                  ),
+                ),
+                Text(
+                  "View All",
+                  style: TextStyle(color: ColorPalette.generalPrimaryColor),
+                )
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          ListView.builder(
+            shrinkWrap: true,
+            physics: NeverScrollableScrollPhysics(),
+            itemCount: 4,
+            itemBuilder: (context, index) {
+              return Container(
+                margin: EdgeInsets.only(left: 10,right: 10,bottom: 10),
+                child: ContainerLeftImageComic(),
+              );
+            },
+          ),
+        ],
+      ),
     );
   }
 

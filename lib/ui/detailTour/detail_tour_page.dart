@@ -1,7 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
 import 'package:jezioto/helper/color_palette.dart';
+import 'package:jezioto/ui/widget/button_rounded.dart';
 
 class DetailTourPage extends StatefulWidget {
   const DetailTourPage({Key? key}) : super(key: key);
@@ -15,15 +17,22 @@ class _DetailTourPageState extends State<DetailTourPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              _header(),
-              SizedBox(height: 15),
-              _body(),
-            ],
-          ),
+        child: Column(
+          children: [
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    _header(),
+                    SizedBox(height: 15),
+                    _body(),
+                  ],
+                ),
+              ),
+            ),
+            _bottom(),
+          ],
         ),
       ),
     );
@@ -32,7 +41,6 @@ class _DetailTourPageState extends State<DetailTourPage> {
   Widget _header() {
     return Container(
       height: 450,
-      margin: EdgeInsets.only(left: 10, right: 10, top: 10),
       width: double.infinity,
       child: Stack(
         children: [
@@ -46,8 +54,6 @@ class _DetailTourPageState extends State<DetailTourPage> {
                     borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(30),
                       bottomRight: Radius.circular(30),
-                      topRight: Radius.circular(30),
-                      topLeft: Radius.circular(30),
                     ),
                     image: DecorationImage(
                       image: imageProvider,
@@ -72,8 +78,6 @@ class _DetailTourPageState extends State<DetailTourPage> {
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(30),
                 bottomRight: Radius.circular(30),
-                topLeft: Radius.circular(30),
-                topRight: Radius.circular(30),
               ),
             ),
             child: Padding(
@@ -84,7 +88,7 @@ class _DetailTourPageState extends State<DetailTourPage> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       InkWell(
-                        onTap: () {},
+                        onTap: ()=>Get.back(),
                         child: Container(
                           padding: const EdgeInsets.all(10),
                           decoration: BoxDecoration(
@@ -114,7 +118,7 @@ class _DetailTourPageState extends State<DetailTourPage> {
                   Expanded(child: SizedBox()),
                   Container(
                     width: double.infinity,
-                    margin: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+                    margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                     padding: EdgeInsets.symmetric( vertical: 15),
                     decoration: BoxDecoration(
                         color: Colors.white.withOpacity(0.5),
@@ -178,8 +182,49 @@ class _DetailTourPageState extends State<DetailTourPage> {
               fontWeight: FontWeight.bold,
             ),
           ),
+          SizedBox(height: 8),
+          Row(
+            children: [
+              FaIcon(
+                FontAwesomeIcons.locationDot,
+                size: 16,
+                color: ColorPalette.generalDarkGrey,
+              ),
+              SizedBox(width: 5),
+              Text(
+                "Sumatera Utara",
+                style: TextStyle(
+                  fontSize: 16,
+                  color: ColorPalette.generalDarkGrey
+                ),
+              ),
+            ],
+          ),
+          SizedBox(height: 20),
+          Text(
+            "Description",
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          SizedBox(height: 8),
+          Text(
+            "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.",
+            style: TextStyle(
+              fontSize: 16,
+              color: ColorPalette.generalDarkGrey
+            ),
+          ),
         ],
       ),
+    );
+  }
+
+  Widget _bottom(){
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 20),
+      child: ButtonRounded(text: 'Read a story',),
     );
   }
 }

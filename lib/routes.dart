@@ -1,10 +1,10 @@
 import 'package:get/get.dart';
-import 'package:jezioto/ui/mainMenu/detailTour/detail_tour_page.dart';
-import 'package:jezioto/ui/mainMenu/search/search_page.dart';
 import 'package:jezioto/ui/navigator_page.dart';
 import 'package:jezioto/ui/web_view.dart';
 
+import 'ui/detailTour/detail_tour_page.dart';
 import 'ui/mainMenu/main_menu_page.dart';
+import 'ui/search/search_page.dart';
 
 
 class Routes {
