@@ -5,15 +5,14 @@ import 'package:jezioto/helper/color_palette.dart';
 import 'package:jezioto/helper/dummy.dart';
 import 'package:jezioto/routes.dart';
 
-class MainMenuDestinationPage extends StatefulWidget {
-  const MainMenuDestinationPage({Key? key}) : super(key: key);
+class ListKecamatanPage extends StatefulWidget {
+  const ListKecamatanPage({Key? key}) : super(key: key);
 
   @override
-  State<MainMenuDestinationPage> createState() =>
-      _MainMenuDestinationPageState();
+  State<ListKecamatanPage> createState() => _ListKecamatanPageState();
 }
 
-class _MainMenuDestinationPageState extends State<MainMenuDestinationPage> {
+class _ListKecamatanPageState extends State<ListKecamatanPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,22 +20,17 @@ class _MainMenuDestinationPageState extends State<MainMenuDestinationPage> {
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20),
           child: ListView.builder(
-            itemCount: listKabupaten.length,
+            itemCount: listKecamatan.length,
             itemBuilder: (context, index) {
-              var kabupaten = listKabupaten[index];
+              var kecamatan = listKecamatan[index];
               return Padding(
                 padding: EdgeInsets.only(top: index == 0 ? 20 : 0, bottom: 10),
                 child: GestureDetector(
-                  onTap: (){
-                    if(kabupaten.isAvailable == true)
-                      Get.toNamed(Routes.listKecamatan);
-                  },
+                  onTap: ()=>_gotoListTouristAttraction(),
                   child: Container(
                     padding: EdgeInsets.symmetric(horizontal: 10, vertical: 15),
                     decoration: BoxDecoration(
-                        color: kabupaten.isAvailable == true
-                            ? Colors.white
-                            : ColorPalette.generalSoftGrey,
+                        color: Colors.white,
                         borderRadius: BorderRadius.all(Radius.circular(10))),
                     child: Row(
                       children: [
@@ -46,7 +40,7 @@ class _MainMenuDestinationPageState extends State<MainMenuDestinationPage> {
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.all(Radius.circular(10)),
                               image: DecorationImage(
-                                  image: AssetImage(kabupaten.image),
+                                  image: AssetImage("images/kabupaten/samosir.png"),
                                   fit: BoxFit.fill)),
                         ),
                         SizedBox(width: 10),
@@ -55,25 +49,17 @@ class _MainMenuDestinationPageState extends State<MainMenuDestinationPage> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                kabupaten.name,
+                                kecamatan.name,
                                 style: TextStyle(fontSize: 18),
                               ),
-                              if(kabupaten.isAvailable!=true)
-                                Row(
-                                  children: [
-                                    FaIcon(FontAwesomeIcons.timesCircle ,size: 14,color: Colors.redAccent,),
-                                    SizedBox(width: 4),
-                                    Text(
-                                      "Not available",
-                                      style: TextStyle(fontSize: 14),
-                                    ),
-                                  ],
-                                )
                             ],
                           ),
                         ),
-                        if(kabupaten.isAvailable==true)
-                          FaIcon(FontAwesomeIcons.arrowCircleRight,size: 20,color:ColorPalette.generalPrimaryColor,)
+                          FaIcon(
+                            FontAwesomeIcons.arrowCircleRight,
+                            size: 20,
+                            color: ColorPalette.generalPrimaryColor,
+                          )
                       ],
                     ),
                   ),
@@ -85,4 +71,9 @@ class _MainMenuDestinationPageState extends State<MainMenuDestinationPage> {
       ),
     );
   }
+
+  _gotoListTouristAttraction(){
+    Get.toNamed(Routes.listTouristAttraction);
+  }
+
 }

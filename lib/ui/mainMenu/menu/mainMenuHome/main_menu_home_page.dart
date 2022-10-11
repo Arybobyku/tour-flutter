@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:jezioto/helper/color_palette.dart';
 import 'package:jezioto/helper/dummy.dart';
+import 'package:jezioto/model/tourist_attraction.dart';
 import 'package:jezioto/routes.dart';
 import 'package:jezioto/ui/widget/container_left_image_comic.dart';
 import 'package:jezioto/ui/widget/container_wisata.dart';
@@ -68,7 +69,7 @@ class _MainMenuHomePageState extends State<MainMenuHomePage> {
                       height: 4,
                     ),
                     Text(
-                      "Discover the beauty of Indonesia",
+                      "Discover the beauty of Sumatera",
                       style: TextStyle(
                         fontSize: 16,
                         color: ColorPalette.generalDarkGrey,
@@ -131,6 +132,7 @@ class _MainMenuHomePageState extends State<MainMenuHomePage> {
                 children: [
                   FaIcon(
                     FontAwesomeIcons.peopleLine,
+                    color: ColorPalette.generalPrimaryColor,
                     size: 15,
                   ),
                   SizedBox(width: 6),
@@ -145,18 +147,20 @@ class _MainMenuHomePageState extends State<MainMenuHomePage> {
   }
 
   Widget _slider() {
+    List<TouristAttraction> touristAttractions = listKecamatan.first.touristAttractions.reversed.toList();
     return Container(
       height: 200,
       child: PageView.builder(
         scrollDirection: Axis.horizontal,
         controller: PageController(viewportFraction: 0.9),
-        itemCount: 4,
+        itemCount: touristAttractions.length-7,
         itemBuilder: (context, index) {
+          var touristAttraction = touristAttractions[index];
           return Padding(
             padding: EdgeInsets.only(left: 5, right: 10),
             child: GestureDetector(
-              onTap: () => _gotoDetailTourPage(),
-              child: SliderContainer(),
+              onTap: () => _gotoDetailTourPage(touristAttraction),
+              child: SliderContainer(touristAttraction: touristAttraction),
             ),
           );
         },
@@ -178,9 +182,12 @@ class _MainMenuHomePageState extends State<MainMenuHomePage> {
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                 ),
               ),
-              Text(
-                "View All",
-                style: TextStyle(color: ColorPalette.generalPrimaryColor),
+              GestureDetector(
+                onTap: ()=>_gotoTouristAttraction(),
+                child: Text(
+                  "View All",
+                  style: TextStyle(color: ColorPalette.generalPrimaryColor),
+                ),
               )
             ],
           ),
@@ -191,17 +198,18 @@ class _MainMenuHomePageState extends State<MainMenuHomePage> {
         SizedBox(
           height: 260,
           child: ListView.builder(
-            itemCount: 4,
+            itemCount: listKecamatan.first.touristAttractions.length-6,
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) {
+              var touristAttraction = listKecamatan.first.touristAttractions[index];
               return Container(
                 margin: EdgeInsets.only(
                     left: 20, bottom: 10, top: 10, right: index == 3 ? 20 : 0),
                 child: GestureDetector(
                   onTap: () {
-                    _gotoDetailTourPage();
+                    _gotoDetailTourPage(touristAttraction);
                   },
-                  child: ContainerWisata(),
+                  child: ContainerWisata(touristAttraction: touristAttraction),
                 ),
               );
             },
@@ -225,9 +233,12 @@ class _MainMenuHomePageState extends State<MainMenuHomePage> {
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                   ),
                 ),
-                Text(
-                  "View All",
-                  style: TextStyle(color: ColorPalette.generalPrimaryColor),
+                GestureDetector(
+                  onTap: (){},
+                  child: Text(
+                    "View All",
+                    style: TextStyle(color: ColorPalette.generalPrimaryColor),
+                  ),
                 )
               ],
             ),
@@ -255,7 +266,11 @@ class _MainMenuHomePageState extends State<MainMenuHomePage> {
     Get.toNamed(Routes.search);
   }
 
-  _gotoDetailTourPage() {
-    Get.toNamed(Routes.detailTour);
+  _gotoTouristAttraction(){
+    Get.toNamed(Routes.listTouristAttraction);
+  }
+
+  _gotoDetailTourPage(TouristAttraction touristAttraction) {
+    Get.toNamed(Routes.detailTour,arguments: touristAttraction);
   }
 }

@@ -5,6 +5,7 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get/get.dart';
 import 'package:jezioto/helper/color_palette.dart';
 import 'package:jezioto/injection.dart';
+import 'package:jezioto/provider/pdf_reader_provider.dart';
 import 'package:jezioto/routes.dart';
 import 'package:jezioto/setup_locator.dart';
 import 'package:provider/provider.dart';
@@ -27,25 +28,30 @@ class MyApp extends StatelessWidget {
   // This menu is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      builder: EasyLoading.init(),
-      navigatorKey: Get.key,
-      debugShowCheckedModeBanner: false,
-      color: ColorPalette.generalBackgroundSoftColor,
-      title: 'Tour',
-      initialRoute: Routes.navigator,
-      getPages: Routes.newRoutes,
-      theme: ThemeData(
-        primaryColor: ColorPalette.generalPrimaryColor,
-        backgroundColor: ColorPalette.generalBackgroundSoftColor,
-        appBarTheme: AppBarTheme(
-          color: ColorPalette.generalPrimaryColor,
-          iconTheme: IconThemeData(
-            color: ColorPalette.generalPrimaryColor
-          )
-        ),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context)=> PDFReaderProvider()),
+      ],
+      child: GetMaterialApp(
+        builder: EasyLoading.init(),
+        navigatorKey: Get.key,
+        debugShowCheckedModeBanner: false,
+        color: ColorPalette.generalBackgroundSoftColor,
+        title: 'Tour',
+        initialRoute: Routes.navigator,
+        getPages: Routes.newRoutes,
+        theme: ThemeData(
+          primaryColor: ColorPalette.generalPrimaryColor,
+          backgroundColor: ColorPalette.generalBackgroundSoftColor,
+          appBarTheme: AppBarTheme(
+            color: ColorPalette.generalPrimaryColor,
+            iconTheme: IconThemeData(
+              color: ColorPalette.generalPrimaryColor
+            )
+          ),
 
-        fontFamily: 'ubuntu',
+          fontFamily: 'ubuntu',
+        ),
       ),
     );
   }

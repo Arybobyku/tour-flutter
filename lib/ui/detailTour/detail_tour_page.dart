@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:jezioto/helper/color_palette.dart';
+import 'package:jezioto/model/tourist_attraction.dart';
 import 'package:jezioto/ui/widget/button_rounded.dart';
 
 class DetailTourPage extends StatefulWidget {
@@ -13,6 +14,9 @@ class DetailTourPage extends StatefulWidget {
 }
 
 class _DetailTourPageState extends State<DetailTourPage> {
+
+  TouristAttraction touristAttraction = Get.arguments;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,8 +49,7 @@ class _DetailTourPageState extends State<DetailTourPage> {
       child: Stack(
         children: [
           CachedNetworkImage(
-            imageUrl:
-            "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0b/15/17/81/hotspring-pangururan.jpg?w=700&h=-1&s=1",
+            imageUrl:touristAttraction.image,
             imageBuilder: (context, imageProvider) =>
                 Container(
                   width: double.infinity,
@@ -134,7 +137,7 @@ class _DetailTourPageState extends State<DetailTourPage> {
                             margin: EdgeInsets.only(left: index==0?10:0,right: 10),
                             child: CachedNetworkImage(
                               imageUrl:
-                              "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0b/15/17/81/hotspring-pangururan.jpg?w=700&h=-1&s=1",
+                              touristAttraction.image,
                               imageBuilder: (context, imageProvider) =>
                                   Container(
                                     width: 70,
@@ -176,7 +179,7 @@ class _DetailTourPageState extends State<DetailTourPage> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "Object Wisata",
+            touristAttraction.name,
             style: TextStyle(
               fontSize: 24,
               fontWeight: FontWeight.bold,
@@ -192,7 +195,7 @@ class _DetailTourPageState extends State<DetailTourPage> {
               ),
               SizedBox(width: 5),
               Text(
-                "Sumatera Utara",
+                "Sumatera Utara, Pangururan",
                 style: TextStyle(
                   fontSize: 16,
                   color: ColorPalette.generalDarkGrey

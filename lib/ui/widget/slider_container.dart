@@ -1,8 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:jezioto/model/tourist_attraction.dart';
 
 class SliderContainer extends StatelessWidget {
-  const SliderContainer({Key? key}) : super(key: key);
+  const SliderContainer({Key? key, required this.touristAttraction}) : super(key: key);
+
+  final TouristAttraction touristAttraction;
 
   @override
   Widget build(BuildContext context) {
@@ -11,8 +14,7 @@ class SliderContainer extends StatelessWidget {
       child: Stack(
         children: [
           CachedNetworkImage(
-            imageUrl:
-            "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0b/15/17/81/hotspring-pangururan.jpg?w=700&h=-1&s=1",
+            imageUrl: touristAttraction.image,
             imageBuilder: (context, imageProvider) => Container(
               width: double.infinity,
               decoration: BoxDecoration(
@@ -52,7 +54,7 @@ class SliderContainer extends StatelessWidget {
                 padding:
                 const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                 child: Text(
-                  "Object Wisata 1",
+                 touristAttraction.name,
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.white,

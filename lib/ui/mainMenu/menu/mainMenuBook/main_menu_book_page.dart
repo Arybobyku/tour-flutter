@@ -1,6 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:jezioto/helper/color_palette.dart';
+import 'package:jezioto/routes.dart';
 import 'package:jezioto/ui/widget/container_left_image_comic.dart';
 
 class MainMenuBookPage extends StatefulWidget {
@@ -20,7 +22,11 @@ class _MainMenuBookPageState extends State<MainMenuBookPage> {
           itemBuilder: (context, index) {
             return Container(
               margin: EdgeInsets.only(left: 10, right: 10, top: 10),
-              child: ContainerLeftImageComic(),
+              child: ContainerLeftImageComic(
+                onTap: (){
+                  Get.toNamed(Routes.pdfReader,arguments: "https://herpes.my.id/pdf/testing.pdf");
+                },
+              ),
             );
           },
         ),

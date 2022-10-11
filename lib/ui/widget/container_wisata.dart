@@ -2,9 +2,12 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:jezioto/helper/color_palette.dart';
+import 'package:jezioto/model/tourist_attraction.dart';
 
 class ContainerWisata extends StatelessWidget {
-  const ContainerWisata({Key? key}) : super(key: key);
+  const ContainerWisata({Key? key, required this.touristAttraction}) : super(key: key);
+
+  final TouristAttraction touristAttraction;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +29,7 @@ class ContainerWisata extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           CachedNetworkImage(
-            imageUrl:"https://asset.kompas.com/crops/0ETwDNboQb6zTRChJupwAFyuL8I=/1x0:780x519/750x500/data/photo/2022/05/27/6290af78e6f38.jpg",
+            imageUrl:touristAttraction.image,
             imageBuilder: (context, imageProvider) => Container(
               width: 200,
               margin: EdgeInsets.only(left: 10, right: 10, top: 10),
@@ -57,7 +60,7 @@ class ContainerWisata extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Object Wisata 1",
+                 touristAttraction.name,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
@@ -78,7 +81,7 @@ class ContainerWisata extends StatelessWidget {
                     SizedBox(width: 6),
                     Expanded(
                       child: Text(
-                        "Sumatera Utara",
+                        "Pangururan",
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                       ),
