@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:jezioto/helper/color_palette.dart';
 import 'package:jezioto/model/tourist_attraction.dart';
 import 'package:jezioto/ui/widget/button_rounded.dart';
+import 'package:share_plus/share_plus.dart';
 
 class DetailTourPage extends StatefulWidget {
   const DetailTourPage({Key? key}) : super(key: key);
@@ -14,7 +15,6 @@ class DetailTourPage extends StatefulWidget {
 }
 
 class _DetailTourPageState extends State<DetailTourPage> {
-
   TouristAttraction touristAttraction = Get.arguments;
 
   @override
@@ -49,21 +49,20 @@ class _DetailTourPageState extends State<DetailTourPage> {
       child: Stack(
         children: [
           CachedNetworkImage(
-            imageUrl:touristAttraction.image,
-            imageBuilder: (context, imageProvider) =>
-                Container(
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(30),
-                      bottomRight: Radius.circular(30),
-                    ),
-                    image: DecorationImage(
-                      image: imageProvider,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
+            imageUrl: touristAttraction.image,
+            imageBuilder: (context, imageProvider) => Container(
+              width: double.infinity,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(30),
+                  bottomRight: Radius.circular(30),
                 ),
+                image: DecorationImage(
+                  image: imageProvider,
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
             placeholder: (context, url) => CircularProgressIndicator(),
             errorWidget: (context, url, error) => Icon(Icons.error),
           ),
@@ -91,16 +90,16 @@ class _DetailTourPageState extends State<DetailTourPage> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       InkWell(
-                        onTap: ()=>Get.back(),
+                        onTap: () => Get.back(),
                         child: Container(
                           padding: const EdgeInsets.all(10),
                           decoration: BoxDecoration(
                               color: Colors.white.withOpacity(0.5),
-                              shape: BoxShape.circle
-                          ),
+                              shape: BoxShape.circle),
                           child: FaIcon(
-                            FontAwesomeIcons.arrowLeft, color: ColorPalette
-                              .generalPrimaryColor,),
+                            FontAwesomeIcons.arrowLeft,
+                            color: ColorPalette.generalPrimaryColor,
+                          ),
                         ),
                       ),
                       InkWell(
@@ -109,11 +108,11 @@ class _DetailTourPageState extends State<DetailTourPage> {
                           padding: const EdgeInsets.all(10),
                           decoration: BoxDecoration(
                               color: Colors.white.withOpacity(0.5),
-                              shape: BoxShape.circle
-                          ),
+                              shape: BoxShape.circle),
                           child: FaIcon(
-                            FontAwesomeIcons.heart, color: ColorPalette
-                              .generalPrimaryColor,),
+                            FontAwesomeIcons.heart,
+                            color: Colors.red,
+                          ),
                         ),
                       ),
                     ],
@@ -122,46 +121,45 @@ class _DetailTourPageState extends State<DetailTourPage> {
                   Container(
                     width: double.infinity,
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                    padding: EdgeInsets.symmetric( vertical: 15),
+                    padding: EdgeInsets.symmetric(vertical: 15),
                     decoration: BoxDecoration(
                         color: Colors.white.withOpacity(0.5),
-                        borderRadius: BorderRadius.all(Radius.circular(15))
-                    ),
+                        borderRadius: BorderRadius.all(Radius.circular(15))),
                     child: Container(
                         height: 70,
                         child: ListView.builder(
                           itemCount: 8,
                           scrollDirection: Axis.horizontal,
-                          itemBuilder: (context,index){
-                          return Container(
-                            margin: EdgeInsets.only(left: index==0?10:0,right: 10),
-                            child: CachedNetworkImage(
-                              imageUrl:
-                              touristAttraction.image,
-                              imageBuilder: (context, imageProvider) =>
-                                  Container(
-                                    width: 70,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.only(
-                                        bottomLeft: Radius.circular(15),
-                                        bottomRight: Radius.circular(15),
-                                        topRight: Radius.circular(15),
-                                        topLeft: Radius.circular(15),
-                                      ),
-                                      image: DecorationImage(
-                                        image: imageProvider,
-                                        fit: BoxFit.cover,
-                                      ),
+                          itemBuilder: (context, index) {
+                            return Container(
+                              margin: EdgeInsets.only(
+                                  left: index == 0 ? 10 : 0, right: 10),
+                              child: CachedNetworkImage(
+                                imageUrl: touristAttraction.image,
+                                imageBuilder: (context, imageProvider) =>
+                                    Container(
+                                  width: 70,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.only(
+                                      bottomLeft: Radius.circular(15),
+                                      bottomRight: Radius.circular(15),
+                                      topRight: Radius.circular(15),
+                                      topLeft: Radius.circular(15),
+                                    ),
+                                    image: DecorationImage(
+                                      image: imageProvider,
+                                      fit: BoxFit.cover,
                                     ),
                                   ),
-                              placeholder: (context, url) =>
-                                  CircularProgressIndicator(),
-                              errorWidget: (context, url, error) =>
-                                  Icon(Icons.error),
-                            ),
-                          );
-                        },)
-                    ),
+                                ),
+                                placeholder: (context, url) =>
+                                    CircularProgressIndicator(),
+                                errorWidget: (context, url, error) =>
+                                    Icon(Icons.error),
+                              ),
+                            );
+                          },
+                        )),
                   ),
                 ],
               ),
@@ -178,12 +176,29 @@ class _DetailTourPageState extends State<DetailTourPage> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            touristAttraction.name,
-            style: TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-            ),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Expanded(
+                child: Text(
+                  touristAttraction.name,
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              GestureDetector(
+                onTap: (){
+                  Share.share("${touristAttraction.image} \n\n ${touristAttraction.name}", subject: touristAttraction.name);
+                },
+                child: FaIcon(
+                  FontAwesomeIcons.solidShareFromSquare,
+                  size: 18,
+                  color: ColorPalette.generalPrimaryColor,
+                ),
+              ),
+            ],
           ),
           SizedBox(height: 8),
           Row(
@@ -197,9 +212,7 @@ class _DetailTourPageState extends State<DetailTourPage> {
               Text(
                 "Sumatera Utara, Pangururan",
                 style: TextStyle(
-                  fontSize: 16,
-                  color: ColorPalette.generalDarkGrey
-                ),
+                    fontSize: 16, color: ColorPalette.generalDarkGrey),
               ),
             ],
           ),
@@ -214,20 +227,19 @@ class _DetailTourPageState extends State<DetailTourPage> {
           SizedBox(height: 8),
           Text(
             "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.",
-            style: TextStyle(
-              fontSize: 16,
-              color: ColorPalette.generalDarkGrey
-            ),
+            style: TextStyle(fontSize: 16, color: ColorPalette.generalDarkGrey),
           ),
         ],
       ),
     );
   }
 
-  Widget _bottom(){
+  Widget _bottom() {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 20),
-      child: ButtonRounded(text: 'Read a story',),
+      child: ButtonRounded(
+        text: 'Read a story',
+      ),
     );
   }
 }

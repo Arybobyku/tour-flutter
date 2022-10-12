@@ -43,6 +43,7 @@ dependencies:
   hive:
   syncfusion_flutter_pdfviewer: ^20.3.47
   flutter_windowmanager: ^0.2.0
+  share_plus:
 
 dev_dependencies:
   flutter_test:
