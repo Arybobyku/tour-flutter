@@ -24,7 +24,7 @@ class _MainMenuBookPageState extends State<MainMenuBookPage> {
               margin: EdgeInsets.only(left: 10, right: 10, top: 10),
               child: ContainerLeftImageComic(
                 onTap: (){
-                  Get.toNamed(Routes.pdfReader,arguments: "https://herpes.my.id/pdf/testing.pdf");
+                  Get.toNamed(Routes.pdfReader,arguments: "assets/komiks/parbaban.pdf");
                 },
               ),
             );

@@ -1,6 +1,8 @@
 import 'package:advance_pdf_viewer/advance_pdf_viewer.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_windowmanager/flutter_windowmanager.dart';
 import 'package:get/get.dart';
+import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
 class PdfReaderPage extends StatefulWidget {
   const PdfReaderPage({Key? key}) : super(key: key);
@@ -11,34 +13,28 @@ class PdfReaderPage extends StatefulWidget {
 
 class _PdfReaderPageState extends State<PdfReaderPage> {
   String url = Get.arguments;
-  bool firstTime = true;
-  late PDFDocument document;
-  bool isLoading = true;
+
+  @override
+  void initState() {
+    disabledCapture();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
-    if (firstTime) {
-      readPdfReader();
-    }
     return Scaffold(
       body: SafeArea(
         child: Container(
-          child: isLoading
-              ? Center(
-                  child: CircularProgressIndicator(),
-                )
-              : PDFViewer(
-                  document: document,
-                ),
+          child: SfPdfViewer.asset(
+            url,
+          ),
         ),
       ),
     );
   }
 
-  readPdfReader() async {
-    PDFDocument doc = await PDFDocument.fromURL(url);
-    document = doc;
-    isLoading = false;
-    setState(() {});
+  disabledCapture()async{
+    await FlutterWindowManager.addFlags(FlutterWindowManager.FLAG_SECURE);
   }
+
 }

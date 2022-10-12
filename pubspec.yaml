@@ -28,13 +28,11 @@ dependencies:
   intl:
   flutter_local_notifications:
   lottie:
-#  pull_to_refresh: ^2.0.0
   get_it:
   fpdart:
   injectable:
   date_time_picker: ^2.1.0
   advance_pdf_viewer: ^2.0.1
-#  workmanager:
   country_state_city_picker: ^1.2.8
   cron: ^0.5.0
   modal_bottom_sheet:
@@ -43,7 +41,8 @@ dependencies:
   font_awesome_flutter:
   hive_flutter:
   hive:
-  easy_pdf_viewer: ^1.0.4
+  syncfusion_flutter_pdfviewer: ^20.3.47
+  flutter_windowmanager: ^0.2.0
 
 dev_dependencies:
   flutter_test:
@@ -61,6 +60,7 @@ flutter:
 
   assets:
     - assets/
+    - assets/komiks/
     - images/
     - images/kabupaten/
 
