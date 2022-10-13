@@ -59,7 +59,7 @@ class _MainMenuHomePageState extends State<MainMenuHomePage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Welcome, Boby ",
+                      "Welcome to the Jezioto ",
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
@@ -84,7 +84,7 @@ class _MainMenuHomePageState extends State<MainMenuHomePage> {
                     color: ColorPalette.generalPrimaryColor,
                     shape: BoxShape.circle),
                 child: Text(
-                  "B",
+                  "J",
                   style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,

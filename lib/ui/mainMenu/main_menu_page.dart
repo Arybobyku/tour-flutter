@@ -30,7 +30,7 @@ class _MainMenuPageState extends State<MainMenuPage> {
   static List<Widget> _pageption = <Widget>[
     MainMenuHomePage(),
     MainMenuDestinationPage(),
-    MainMenuBookPage(),
+    // MainMenuBookPage(),
     MainMenuFavoritePage(),
   ];
   @override
@@ -54,10 +54,10 @@ class _MainMenuPageState extends State<MainMenuPage> {
             icon: FaIcon(FontAwesomeIcons.solidMap,size: 18,),
             label: 'Explore',
           ),
-          BottomNavigationBarItem(
-            icon: FaIcon(FontAwesomeIcons.book,size: 18,),
-            label: 'Comic',
-          ),
+          // BottomNavigationBarItem(
+          //   icon: FaIcon(FontAwesomeIcons.book,size: 18,),
+          //   label: 'Comic',
+          // ),
           BottomNavigationBarItem(
             icon: FaIcon(FontAwesomeIcons.solidHeart,size: 18,),
             label: 'Favorite',

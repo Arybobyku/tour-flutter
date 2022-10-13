@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:jezioto/helper/color_palette.dart';
+import 'package:jezioto/helper/dummy.dart';
 import 'package:jezioto/model/tourist_attraction.dart';
+import 'package:jezioto/routes.dart';
 import 'package:jezioto/ui/widget/button_rounded.dart';
 import 'package:share_plus/share_plus.dart';
 
@@ -31,6 +33,8 @@ class _DetailTourPageState extends State<DetailTourPage> {
                     _header(),
                     SizedBox(height: 15),
                     _body(),
+                    SizedBox(height: 15),
+                    _aspect(),
                   ],
                 ),
               ),
@@ -218,18 +222,71 @@ class _DetailTourPageState extends State<DetailTourPage> {
           ),
           SizedBox(height: 20),
           Text(
+            "The story of",
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          SizedBox(height: 4),
+          Text(
+            touristAttraction.title,
+             style: TextStyle(fontSize: 18, color: ColorPalette.generalDarkGrey),
+          ),
+          SizedBox(height: 20),
+          Text(
             "Description",
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
             ),
           ),
-          SizedBox(height: 8),
+          SizedBox(height: 4),
           Text(
             "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.",
-            style: TextStyle(fontSize: 16, color: ColorPalette.generalDarkGrey),
+            style: TextStyle(fontSize: 18, color: ColorPalette.generalDarkGrey),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget _aspect() {
+    return Container(
+      height: 36,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: dummyAspect.length,
+        itemBuilder: (context, index) {
+          var name = dummyAspect[index];
+          return Padding(
+            padding: EdgeInsets.only(
+                left: index == 0 ? 20 : 8,
+                right: index == dummyAspect.length - 1 ? 20 : 0),
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(20),
+                border: Border.all(
+                  color: ColorPalette.generalGrey,
+                ),
+              ),
+              alignment: Alignment.center,
+              child: Row(
+                children: [
+                  FaIcon(
+                    FontAwesomeIcons.peopleLine,
+                    color: ColorPalette.generalPrimaryColor,
+                    size: 15,
+                  ),
+                  SizedBox(width: 6),
+                  Text(name),
+                ],
+              ),
+            ),
+          );
+        },
       ),
     );
   }
@@ -238,6 +295,11 @@ class _DetailTourPageState extends State<DetailTourPage> {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 20),
       child: ButtonRounded(
+        onPressed: (){
+          if(touristAttraction.pdfPath!=null){
+            Get.toNamed(Routes.pdfReader,arguments: touristAttraction.pdfPath);
+          }
+        },
         text: 'Read a story',
       ),
     );
