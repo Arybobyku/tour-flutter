@@ -64,6 +64,8 @@ flutter:
     - assets/komiks/
     - images/
     - images/kabupaten/
+    - images/peta/
+    - images/logo/
 
   fonts:
     - family: Ubuntu

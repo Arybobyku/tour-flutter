@@ -16,17 +16,43 @@ class _NavigatorPageState extends State<NavigatorPage> {
   Widget build(BuildContext context) {
     navigated(context);
     return Scaffold(
-      backgroundColor: ColorPalette.generalBackgroundColor,
-      body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Lottie.asset(
-              'images/loading.json',
+      backgroundColor: Colors.white,
+      body: Column(
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset("images/logo/logo_jezioto.png"),
+                Text("Jezioto",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 40,color: ColorPalette.generalPrimaryColor),),
+              ],
+            )
+          ),
+
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 6),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text("Supported By:",style: TextStyle(fontWeight: FontWeight.bold),),
+                Row(
+                  children: [
+                    Image.asset("images/logo/logo_usu.png",height: 35,width: 35,),
+                    SizedBox(width: 10),
+                    Image.asset("images/logo/kampus_merdeka.png",height: 60,width: 60,)         ,
+                    SizedBox(width: 10),
+                    Image.asset("images/logo/logo_arsitektur.png",height: 35,width: 35,),
+                    SizedBox(width: 10),
+                    Image.asset("images/logo/logo_mcsto.jpg",height: 35,width: 40,),
+                    SizedBox(width: 4),
+                    Image.asset("images/logo/logo_pui.png",height: 40,width: 60,)
+                  ],
+                ),
+              ],
             ),
-          ],
-        ),
+          )
+        ],
       ),
     );
   }
@@ -39,8 +65,9 @@ class _NavigatorPageState extends State<NavigatorPage> {
     //
     // var mainMenu = await FirebaseAuth.instance.currentUser??null;
     //
-    await Future.delayed(const Duration(seconds: 2), () async {
+    await Future.delayed(const Duration(seconds: 5), () async {
       Get.offAllNamed(Routes.mainMenu);
+      
       // if (mainMenu==null) {
       //   Get.offAllNamed(Routes.login);
       // } else if(role==1){
