@@ -124,7 +124,6 @@ class _DetailTourPageState extends State<DetailTourPage> {
                   ),
                   Expanded(child: SizedBox()),
                   Container(
-                    width: double.infinity,
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                     padding: EdgeInsets.symmetric(vertical: 15),
                     decoration: BoxDecoration(
@@ -133,6 +132,7 @@ class _DetailTourPageState extends State<DetailTourPage> {
                     child: Container(
                       height: 70,
                       child: ListView.builder(
+                        shrinkWrap: true,
                         itemCount: 3,
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (context, index) {
@@ -238,7 +238,7 @@ class _DetailTourPageState extends State<DetailTourPage> {
           ),
           SizedBox(height: 15),
           CachedNetworkImage(
-            imageUrl: touristAttraction.image,
+            imageUrl: touristAttraction.imageKomik??"",
             imageBuilder: (context, imageProvider) =>
                 Container(
                   width: MediaQuery.of(context).size.width/2.9,

@@ -25,7 +25,7 @@ class _PdfReaderPageState extends State<PdfReaderPage> {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          child: SfPdfViewer.asset(
+          child: SfPdfViewer.network(
             url,
           ),
         ),

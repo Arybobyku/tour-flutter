@@ -3,6 +3,7 @@ class TouristAttraction {
   String image;
   String title;
   String? pdfPath;
+  String? imageKomik;
   String description;
 
   TouristAttraction({
@@ -10,6 +11,7 @@ class TouristAttraction {
     required this.description,
     required this.image,
     required this.title,
-    this.pdfPath
+    this.pdfPath,
+    this.imageKomik,
   });
 }

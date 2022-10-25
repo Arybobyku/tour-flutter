@@ -1,3 +1,4 @@
+import 'package:jezioto/helper/constants.dart';
 import 'package:jezioto/model/Kabupaten.dart';
 import 'package:jezioto/model/kecamatan.dart';
 import 'package:jezioto/model/tourist_attraction.dart';
@@ -45,10 +46,10 @@ List<TouristAttraction> listTouristAttraction = [
   TouristAttraction(
     name: "Pantai Pasir Putih Huta Bolon Parbaba",
     title: "A Trip To White Sand Beach Parbaba",
-    pdfPath: "assets/komiks/parbaban.pdf",
+    pdfPath: Constants.baseAPIUrlAssets+"parbaban.pdf",
     description: "Pantai Pasir Putih Huta Bolon Parbaba",
-    image:
-        "https://www.ninna.id/wp-content/uploads/2021/09/Pasir-Putih-Parbaba.jpeg",
+    image: "https://www.ninna.id/wp-content/uploads/2021/09/Pasir-Putih-Parbaba.jpeg",
+    imageKomik: Constants.baseAPIUrlImg+"parbaban.png"
   ),
   TouristAttraction(
     name: "Museum Gereja Katholik Inkulturatif",
@@ -83,6 +84,8 @@ List<TouristAttraction> listTouristAttraction = [
     title: "The story of Holbung Samosir",
     description: "Bukit Holbung Samosir",
     image: "https://advontura.com/wp-content/uploads/2020/11/1-3-1.jpg",
+    pdfPath: Constants.baseAPIUrlAssets+"holbung.pdf",
+    imageKomik: Constants.baseAPIUrlImg+"holbung.png"
   ),
 ];
 
