@@ -5,8 +5,10 @@ import 'package:get/get.dart';
 import 'package:jezioto/helper/color_palette.dart';
 import 'package:jezioto/helper/dummy.dart';
 import 'package:jezioto/model/tourist_attraction.dart';
+import 'package:jezioto/provider/database_provider.dart';
 import 'package:jezioto/routes.dart';
 import 'package:jezioto/ui/widget/button_rounded.dart';
+import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
 
 class DetailTourPage extends StatefulWidget {
@@ -19,8 +21,21 @@ class DetailTourPage extends StatefulWidget {
 class _DetailTourPageState extends State<DetailTourPage> {
   TouristAttraction touristAttraction = Get.arguments;
 
+  bool isLike = false;
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void didChangeDependencies()async{
+    super.didChangeDependencies();
+  }
+
   @override
   Widget build(BuildContext context) {
+    Provider.of<DatabaseProvider>(context,listen: false).openBox();
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -108,14 +123,23 @@ class _DetailTourPageState extends State<DetailTourPage> {
                         ),
                       ),
                       InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          setState((){
+                            isLike = !isLike;
+                            if(isLike){
+                              Provider.of<DatabaseProvider>(context,listen: false).setFavorite(touristAttraction);
+                            }else{
+                              Provider.of<DatabaseProvider>(context,listen: false).removeFavorite(touristAttraction);
+                            }
+                          });
+                        },
                         child: Container(
                           padding: const EdgeInsets.all(10),
                           decoration: BoxDecoration(
                               color: Colors.white.withOpacity(0.5),
                               shape: BoxShape.circle),
                           child: FaIcon(
-                            FontAwesomeIcons.heart,
+                           isLike? FontAwesomeIcons.solidHeart:FontAwesomeIcons.heart,
                             color: Colors.red,
                           ),
                         ),

@@ -6,6 +6,7 @@ import 'package:jezioto/helper/color_palette.dart';
 import 'package:jezioto/helper/dummy.dart';
 import 'package:jezioto/model/tourist_attraction.dart';
 import 'package:jezioto/routes.dart';
+import 'package:jezioto/ui/widget/button_rounded.dart';
 
 class ListKecamatanPage extends StatefulWidget {
   const ListKecamatanPage({Key? key}) : super(key: key);
@@ -15,6 +16,8 @@ class ListKecamatanPage extends StatefulWidget {
 }
 
 class _ListKecamatanPageState extends State<ListKecamatanPage> {
+  bool isFromOnBoarding = Get.arguments ?? false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,6 +31,18 @@ class _ListKecamatanPageState extends State<ListKecamatanPage> {
               _body(),
               SizedBox(height: 20),
               _listAttraction(),
+              SizedBox(height: 10),
+              if (isFromOnBoarding)
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  child: ButtonRounded(
+                    text: "Go to home page",
+                    onPressed: () {
+                      Get.offAllNamed(Routes.mainMenu);
+                    },
+                  ),
+                ),
+              SizedBox(height: 20),
             ],
           ),
         ),
@@ -40,16 +55,17 @@ class _ListKecamatanPageState extends State<ListKecamatanPage> {
       height: 435,
       child: Stack(
         children: [
-          Image.asset(panguguran.image, width: double.infinity,height: 435),
+          Image.asset(panguguran.image, width: double.infinity, height: 435),
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
               height: 15,
               width: double.infinity,
               decoration: BoxDecoration(
-                color: ColorPalette.generalBackgroundSoftColor,
-                borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight: Radius.circular(20))
-              ),
+                  color: ColorPalette.generalBackgroundSoftColor,
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(20),
+                      topRight: Radius.circular(20))),
             ),
           )
         ],
@@ -64,7 +80,6 @@ class _ListKecamatanPageState extends State<ListKecamatanPage> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-
           Text(
             panguguran.name,
             style: TextStyle(
@@ -98,7 +113,9 @@ class _ListKecamatanPageState extends State<ListKecamatanPage> {
         children: [
           Text(
             "Tourist Attractions:",
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold,
+            style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
               color: ColorPalette.generalPrimaryColor,
             ),
           ),

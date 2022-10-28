@@ -19,71 +19,63 @@ List<TouristAttraction> listTouristAttraction = [
     name: "Terusan Tano Ponggol",
     description: "Terusan Tano Ponggol",
     title: "The story of Tano Ponggol",
-    image:
-        "https://3.bp.blogspot.com/-OGHHDxII4oI/W_M1tMgwSSI/AAAAAAAAFV4/7G3amFIhoY8ZlJ2C4U8Mx-IR-VszLUBuQCLcBGAs/s1600/tano-ponggol-pangururan.JPG",
+    image:Constants.baseAPIUrlImgDestinasi+"Terusan_Tano_Ponggol.jpg"
   ),
   TouristAttraction(
     name: "Pemandian Air Panas",
     description: "Pemandian Air Panas",
     title: "The story of Pemandian Air Panas",
-    image:
-        "https://cdn-2.tstatic.net/tribunnews/foto/bank/images/pemandian-hotspring-pangururan-samosir_20150724_153238.jpg",
+    image:Constants.baseAPIUrlImgDestinasi+"aspek_sejarah_aek.jpg"
   ),
   TouristAttraction(
     name: "Monumen Perjuangan Liberty Malau",
     description: "Monumen Perjuangan Liberty Malau",
     title: "The story of the Perjuangan Liberty Malau",
-    image:
-        "https://www.indonesia-tourism.com/north-sumatra/toba/images/malau-liberty.jpg",
+    image:Constants.baseAPIUrlImgDestinasi+"liberty_malau.jpg"
   ),
   TouristAttraction(
     name: "Komunitas Tenun Ulos Batak Huta Raja",
     description: "Komunitas Tenun Ulos Batak Huta Raja",
     title: "The story of Tenun Ulos Batak",
-    image:
-        "https://cloud.jpnn.com/photo/arsip/normal/2022/02/03/kampung-hutaraja-di-kecamatan-pangururan-kabupaten-samosir-z-0nra.jpg",
+    image:Constants.baseAPIUrlImgDestinasi+"komunitas_tenun_ulos_batak_hutaraja.jpg"
   ),
   TouristAttraction(
     name: "Pantai Pasir Putih Huta Bolon Parbaba",
     title: "A Trip To White Sand Beach Parbaba",
     pdfPath: Constants.baseAPIUrlAssets+"parbaban.pdf",
     description: "Pantai Pasir Putih Huta Bolon Parbaba",
-    image: "https://www.ninna.id/wp-content/uploads/2021/09/Pasir-Putih-Parbaba.jpeg",
+    image:Constants.baseAPIUrlImgDestinasi+"pantai_pasir_putih_parbaba.jpg",
     imageKomik: Constants.baseAPIUrlImg+"parbaban.png"
   ),
   TouristAttraction(
     name: "Museum Gereja Katholik Inkulturatif",
     title: "The story of Gereja Katholik",
     description: "Museum Gereja Katholik Inkulturatif",
-    image:
-        "https://medanbisnisdaily.com/imagesfile/201709/20170903_065711_wisata_arsitektural_gereja_katolik_inkulturasi_st_mikael_pangururan.jpeg",
+    image:Constants.baseAPIUrlImgDestinasi+"museum_gereja_katolik_inkulturatif.png"
   ),
   TouristAttraction(
     name: "Menara Doa Sinatapan",
     title: "The story of Menara Doa Sinatapan",
     description: "Menara Doa Sinatapan",
-    image:
-        "https://waspada.co.id/wp-content/uploads/2016/12/menara-doa-sinatapan.jpg",
+    image:Constants.baseAPIUrlImgDestinasi+"Menara_Doa_Sinatapan.png"
   ),
   TouristAttraction(
     name: "Kawasan Pohon Boru Naitang",
     title: "The story of Pohon Boru Naitang",
     description: "Kawasan Pohon Boru Naitang",
-    image:
-        "https://1.bp.blogspot.com/-vz8UWVqbciY/VGFABu798oI/AAAAAAAABXk/V6n5EWXtbKI/s1600/Boru%2BNaitang.JPG",
+    image:Constants.baseAPIUrlImgDestinasi+"Pohon_Boru_Naitang.png",
   ),
   TouristAttraction(
     name: "Bukit Sibea-bea",
     title: "The story of Bukit Sibea-bea",
     description: "Bukit Sibea-bea",
-    image:
-        "https://analisadaily.com/imagesfile/202112/20211226-160610_bukit-sibeabea-bukit-wisata-rohani-yang-sedang-viral.jpeg",
+    image:Constants.baseAPIUrlImgDestinasi+"bukit_sibea-bea.jpg"
   ),
   TouristAttraction(
     name: "Bukit Holbung Samosir",
     title: "The story of Holbung Samosir",
     description: "Bukit Holbung Samosir",
-    image: "https://advontura.com/wp-content/uploads/2020/11/1-3-1.jpg",
+    image:Constants.baseAPIUrlImgDestinasi+"Bukit_Holbung.png",
     pdfPath: Constants.baseAPIUrlAssets+"holbung.pdf",
     imageKomik: Constants.baseAPIUrlImg+"holbung.png"
   ),

@@ -51,7 +51,10 @@ class ContainerWisata extends StatelessWidget {
                 child: CircularProgressIndicator(),
               ),
             ),
-            errorWidget: (context, url, error) => Icon(Icons.error),
+            errorWidget: (context, url, error) => SizedBox(
+              height: 150,width: 200,
+              child: Icon(Icons.error),
+            ),
           ),
           SizedBox(height: 5),
           Padding(

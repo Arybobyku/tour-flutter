@@ -5,6 +5,7 @@ import 'package:intl/intl.dart';
 class Constants{
   static const String baseAPIUrlImg = 'https://herpes.my.id/jezioto/images/komiks/';
   static const String baseAPIUrlAssets = 'https://herpes.my.id/jezioto/assets/';
+  static const String baseAPIUrlImgDestinasi = 'https://herpes.my.id/jezioto/images/destinasi/';
 
   static const String userName = 'userName';
   static const String role = 'role';

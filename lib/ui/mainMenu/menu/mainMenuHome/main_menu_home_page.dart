@@ -35,7 +35,7 @@ class _MainMenuHomePageState extends State<MainMenuHomePage> {
               SizedBox(height: 25),
               _recommended(),
               SizedBox(height: 25),
-              _theStoryOf(),
+              // _theStoryOf(),
               SizedBox(height: 25),
             ],
           ),
@@ -78,19 +78,20 @@ class _MainMenuHomePageState extends State<MainMenuHomePage> {
                   ],
                 ),
               ),
-              Container(
-                padding: EdgeInsets.all(12),
-                decoration: BoxDecoration(
-                    color: ColorPalette.generalPrimaryColor,
-                    shape: BoxShape.circle),
-                child: Text(
-                  "J",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20),
-                ),
-              )
+              Image.asset("images/logo/logo_jezioto.png",width: 40, height: 40,)
+              // Container(
+              //   padding: EdgeInsets.all(12),
+              //   decoration: BoxDecoration(
+              //       color: ColorPalette.generalPrimaryColor,
+              //       shape: BoxShape.circle),
+              //   child: Text(
+              //     "J",
+              //     style: TextStyle(
+              //         color: Colors.white,
+              //         fontWeight: FontWeight.bold,
+              //         fontSize: 20),
+              //   ),
+              // )
             ],
           ),
           SizedBox(height: 20),

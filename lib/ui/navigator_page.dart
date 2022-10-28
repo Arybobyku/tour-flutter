@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jezioto/helper/color_palette.dart';
 import 'package:jezioto/routes.dart';
-import 'package:lottie/lottie.dart';
 
 class NavigatorPage extends StatefulWidget {
   const NavigatorPage({Key? key}) : super(key: key);
@@ -40,13 +39,15 @@ class _NavigatorPageState extends State<NavigatorPage> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 6),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+                SizedBox(height: 10),
                 Text(
                   "Supported By:",
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Image.asset(
                       "images/logo/logo_usu.png",
@@ -61,6 +62,17 @@ class _NavigatorPageState extends State<NavigatorPage> {
                     ),
                     SizedBox(width: 10),
                     Image.asset(
+                      "images/logo/logo_transformation.jpeg",
+                      height: 60,
+                      width: 100,
+                    ),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(width: 4),
+                    Image.asset(
                       "images/logo/logo_mcsto.jpg",
                       height: 35,
                       width: 40,
@@ -70,19 +82,19 @@ class _NavigatorPageState extends State<NavigatorPage> {
                       "images/logo/logo_pui.png",
                       height: 40,
                       width: 60,
-                    ) ,
+                    ),
                     Image.asset(
                       "images/logo/logo_bpodt.png",
                       height: 40,
                       width: 60,
-                    ) ,
+                    ),
                     Image.asset(
                       "images/logo/logo_arsitektur.png",
                       height: 50,
                       width: 50,
                     ),
                   ],
-                ),
+                )
               ],
             ),
           )
@@ -99,7 +111,7 @@ class _NavigatorPageState extends State<NavigatorPage> {
     // var mainMenu = await FirebaseAuth.instance.currentUser??null;
     //
     await Future.delayed(const Duration(seconds: 5), () async {
-      // Get.offAllNamed(Routes.mainMenu);
+      Get.offAllNamed(Routes.onBoarding);
 
       // if (mainMenu==null) {
       //   Get.offAllNamed(Routes.login);
