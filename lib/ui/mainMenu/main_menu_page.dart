@@ -65,7 +65,7 @@ class _MainMenuPageState extends State<MainMenuPage> {
           ),
           BottomNavigationBarItem(
             icon: FaIcon(FontAwesomeIcons.info,size: 18,),
-            label: 'Information',
+            label: 'Created',
           ),
         ],
       ),

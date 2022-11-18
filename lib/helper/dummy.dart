@@ -1,6 +1,7 @@
 import 'package:jezioto/helper/constants.dart';
 import 'package:jezioto/model/Kabupaten.dart';
 import 'package:jezioto/model/kecamatan.dart';
+import 'package:jezioto/model/object_value.dart';
 import 'package:jezioto/model/tourist_attraction.dart';
 
 import '../model/kecamatan.dart';
@@ -14,70 +15,86 @@ List<String> dummyAspect = [
   "Cultural",
 ];
 
+List<ObjectValue> setValueAspect(String name) {
+  return [
+    ObjectValue(name: 'Historis', value: 'assets/aspect/$name/Historis.pdf'),
+    ObjectValue(name: 'People', value: 'assets/aspect/$name/People.pdf'),
+    ObjectValue(name: 'Nature', value: 'assets/aspect/$name/Nature.pdf'),
+    ObjectValue(
+        name: 'Architecture', value: 'assets/aspect/$name/Architecture.pdf'),
+    ObjectValue(name: 'Social', value: 'assets/aspect/$name/Social.pdf'),
+    ObjectValue(name: 'Cultural', value: 'assets/aspect/$name/Cultural.pdf'),
+  ];
+}
+
 List<TouristAttraction> listTouristAttraction = [
   TouristAttraction(
-    name: "Terusan Tano Ponggol",
-    description: "Terusan Tano Ponggol",
-    title: "The story of Tano Ponggol",
-    image:Constants.baseAPIUrlImgDestinasi+"Terusan_Tano_Ponggol.jpg"
+      name: "Tano Ponggol Canal",
+      description: "Tano Ponggol Canal",
+      title: "Our Impression of The Tano Ponggol Canal",
+      image: Constants.baseAPIUrlImgDestinasi + "Terusan_Tano_Ponggol.jpg"),
+  TouristAttraction(
+      name: "Aek Rangkat Hot Springs",
+      description: "Aek Rangkat Hot Springs",
+      title: "In Hot Spring Aek Rangkat We have Fun",
+      pdfPath: "assets/komiks/aek_rangkat.pdf",
+      image: Constants.baseAPIUrlImgDestinasi + "aspek_sejarah_aek.jpg",
+      imageKomik: Constants.baseAPIUrlImg + "aek_rangkat.png",
+      aspects: setValueAspect('aek_rangkat')),
+  TouristAttraction(
+      name: "Liberty Malau Struggle Monument",
+      description: "Liberty Malau Struggle Monument",
+      title: "Travel to the Liberty Malau Struggle Monument, It's so Glimpse what life is like somewhere else",
+      image: Constants.baseAPIUrlImgDestinasi + "liberty_malau.jpg"),
+  TouristAttraction(
+    name: "Ulos Batak Huta Raja Weaving Community",
+    description: "Ulos Batak Huta Raja Weaving Community",
+    title: "Don't be arrogant because you are in the Ulos Batak Huta Raja Weaving Community",
+    image: Constants.baseAPIUrlImgDestinasi +
+        "komunitas_tenun_ulos_batak_hutaraja.jpg",
+    pdfPath: "assets/komiks/hutaraja.pdf",
+    imageKomik: Constants.baseAPIUrlImg + "hutaraja.png",
+    aspects: setValueAspect('hutaraja'),
   ),
   TouristAttraction(
-    name: "Pemandian Air Panas",
-    description: "Pemandian Air Panas",
-    title: "The story of Pemandian Air Panas",
-    image:Constants.baseAPIUrlImgDestinasi+"aspek_sejarah_aek.jpg"
+    name: "Huta Bolon Parbaba White Sand Beach",
+    title: "A Trip to the White Sand Beach Parbaba",
+    pdfPath: "assets/komiks/parbaban.pdf",
+    description: "Huta Bolon Parbaba White Sand Beach",
+    image: Constants.baseAPIUrlImgDestinasi + "pantai_pasir_putih_parbaba.jpg",
+    imageKomik: Constants.baseAPIUrlImg + "parbaban.png",
+    aspects: setValueAspect('parbaban'),
   ),
   TouristAttraction(
-    name: "Monumen Perjuangan Liberty Malau",
-    description: "Monumen Perjuangan Liberty Malau",
-    title: "The story of the Perjuangan Liberty Malau",
-    image:Constants.baseAPIUrlImgDestinasi+"liberty_malau.jpg"
+      name: "Inculturative Catholic Chruch Museum",
+      title: "We are happy doing normal things, we are also excited to go to the Inculturative Chruch Museum",
+      description: "Inculturative Catholic Chruch Museum",
+      image: Constants.baseAPIUrlImgDestinasi +
+          "museum_gereja_katolik_inkulturatif.png"),
+  TouristAttraction(
+      name: "Sinatapan Prayer Tower",
+      title: "Come to Sinatapan Samosir Prayer Tower, and enjoy the Nature of Lake Toba as one of God's Miracle",
+      description:  "Sinatapan Prayer Tower",
+      image: Constants.baseAPIUrlImgDestinasi + "Menara_Doa_Sinatapan.png"),
+  TouristAttraction(
+    name: "Boru Naitang Tree Area",
+    title: "Boru Naitang Tree as historical evidence of Violation of the Principle os Sibling Love",
+    description:  "Boru Naitang Tree Area",
+    image: Constants.baseAPIUrlImgDestinasi + "Pohon_Boru_Naitang.png",
   ),
   TouristAttraction(
-    name: "Komunitas Tenun Ulos Batak Huta Raja",
-    description: "Komunitas Tenun Ulos Batak Huta Raja",
-    title: "The story of Tenun Ulos Batak",
-    image:Constants.baseAPIUrlImgDestinasi+"komunitas_tenun_ulos_batak_hutaraja.jpg"
-  ),
+      name: "Sibea-bea Hill",
+      title: "On Sibea-bea Hill, there is a beginning and an end to all-natural sights",
+      description: "Sibea-bea Hill",
+      image: Constants.baseAPIUrlImgDestinasi + "bukit_sibea-bea.jpg"),
   TouristAttraction(
-    name: "Pantai Pasir Putih Huta Bolon Parbaba",
-    title: "A Trip To White Sand Beach Parbaba",
-    pdfPath: Constants.baseAPIUrlAssets+"parbaban.pdf",
-    description: "Pantai Pasir Putih Huta Bolon Parbaba",
-    image:Constants.baseAPIUrlImgDestinasi+"pantai_pasir_putih_parbaba.jpg",
-    imageKomik: Constants.baseAPIUrlImg+"parbaban.png"
-  ),
-  TouristAttraction(
-    name: "Museum Gereja Katholik Inkulturatif",
-    title: "The story of Gereja Katholik",
-    description: "Museum Gereja Katholik Inkulturatif",
-    image:Constants.baseAPIUrlImgDestinasi+"museum_gereja_katolik_inkulturatif.png"
-  ),
-  TouristAttraction(
-    name: "Menara Doa Sinatapan",
-    title: "The story of Menara Doa Sinatapan",
-    description: "Menara Doa Sinatapan",
-    image:Constants.baseAPIUrlImgDestinasi+"Menara_Doa_Sinatapan.png"
-  ),
-  TouristAttraction(
-    name: "Kawasan Pohon Boru Naitang",
-    title: "The story of Pohon Boru Naitang",
-    description: "Kawasan Pohon Boru Naitang",
-    image:Constants.baseAPIUrlImgDestinasi+"Pohon_Boru_Naitang.png",
-  ),
-  TouristAttraction(
-    name: "Bukit Sibea-bea",
-    title: "The story of Bukit Sibea-bea",
-    description: "Bukit Sibea-bea",
-    image:Constants.baseAPIUrlImgDestinasi+"bukit_sibea-bea.jpg"
-  ),
-  TouristAttraction(
-    name: "Bukit Holbung Samosir",
-    title: "The story of Holbung Samosir",
-    description: "Bukit Holbung Samosir",
-    image:Constants.baseAPIUrlImgDestinasi+"Bukit_Holbung.png",
-    pdfPath: Constants.baseAPIUrlAssets+"holbung.pdf",
-    imageKomik: Constants.baseAPIUrlImg+"holbung.png"
+    name: "Holbung Samosir Hill",
+    title: "When We were Camping in Holbung Hill Samosir",
+    description:  "Holbung Samosir Hill",
+    image: Constants.baseAPIUrlImgDestinasi + "Bukit_Holbung.png",
+    pdfPath: "assets/komiks/holbung.pdf",
+    imageKomik: Constants.baseAPIUrlImg + "holbung.png",
+    aspects: setValueAspect('holbung'),
   ),
 ];
 
@@ -105,7 +122,6 @@ List<Kabupaten> listKabupaten = [
   Kabupaten(
       name: "Humbang Hasundutan Regency",
       image: "images/kabupaten/hasundutan.png"),
-
   Kabupaten(
     name: "Karo Regency",
     image: "images/kabupaten/karo.jpg",

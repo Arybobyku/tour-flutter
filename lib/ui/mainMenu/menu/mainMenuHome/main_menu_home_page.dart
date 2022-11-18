@@ -119,26 +119,31 @@ class _MainMenuHomePageState extends State<MainMenuHomePage> {
             padding: EdgeInsets.only(
                 left: index == 0 ? 20 : 8,
                 right: index == dummyAspect.length - 1 ? 20 : 0),
-            child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(20),
-                border: Border.all(
-                  color: ColorPalette.generalGrey,
-                ),
-              ),
-              alignment: Alignment.center,
-              child: Row(
-                children: [
-                  FaIcon(
-                    FontAwesomeIcons.peopleLine,
-                    color: ColorPalette.generalPrimaryColor,
-                    size: 15,
+            child: GestureDetector(
+              onTap: (){
+                Get.toNamed(Routes.detailAspect,arguments: name);
+              },
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20),
+                  border: Border.all(
+                    color: ColorPalette.generalGrey,
                   ),
-                  SizedBox(width: 6),
-                  Text(name),
-                ],
+                ),
+                alignment: Alignment.center,
+                child: Row(
+                  children: [
+                    FaIcon(
+                      FontAwesomeIcons.peopleLine,
+                      color: ColorPalette.generalPrimaryColor,
+                      size: 15,
+                    ),
+                    SizedBox(width: 6),
+                    Text(name),
+                  ],
+                ),
               ),
             ),
           );

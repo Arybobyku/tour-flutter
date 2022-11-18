@@ -16,7 +16,7 @@ class _PdfReaderPageState extends State<PdfReaderPage> {
 
   @override
   void initState() {
-    disabledCapture();
+    // disabledCapture();
     super.initState();
   }
 
@@ -25,7 +25,7 @@ class _PdfReaderPageState extends State<PdfReaderPage> {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          child: SfPdfViewer.network(
+          child: SfPdfViewer.asset(
             url,
           ),
         ),

@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:jezioto/ui/detailAspect/detail_aspect_page.dart';
 import 'package:jezioto/ui/listKecamatan/list_kecamatan_page.dart';
 import 'package:jezioto/ui/listToursitAttraction/list_tourist_attraction_page.dart';
 import 'package:jezioto/ui/navigator_page.dart';
@@ -21,6 +22,7 @@ class Routes {
   static const String onBoarding = "/onBoarding";
 
   static const String detailTour = "/detailTour";
+  static const String detailAspect = "/detailAspect";
 
   static const String listKecamatan = "/listKecamatan";
   static const String listTouristAttraction = "/listTouristAttraction";
@@ -31,6 +33,7 @@ class Routes {
   static final newRoutes = <GetPage>[
     GetPage(name: navigator, page:()=>NavigatorPage()),
     GetPage(name: mainMenu, page:()=>MainMenuPage()),
+    GetPage(name: detailAspect, page:()=>DetailAspectPage()),
     GetPage(name: search, page:()=>SearchPage()),
     GetPage(name: onBoarding, page:()=>OnBoardingPage()),
     GetPage(name: listKecamatan, page:()=>ListKecamatanPage()),

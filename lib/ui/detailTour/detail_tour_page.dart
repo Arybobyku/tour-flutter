@@ -29,13 +29,13 @@ class _DetailTourPageState extends State<DetailTourPage> {
   }
 
   @override
-  void didChangeDependencies()async{
+  void didChangeDependencies() async {
     super.didChangeDependencies();
   }
 
   @override
   Widget build(BuildContext context) {
-    Provider.of<DatabaseProvider>(context,listen: false).openBox();
+    Provider.of<DatabaseProvider>(context, listen: false).openBox();
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -49,7 +49,7 @@ class _DetailTourPageState extends State<DetailTourPage> {
                     SizedBox(height: 15),
                     _body(),
                     SizedBox(height: 15),
-                    _aspect(),
+                    if (touristAttraction.aspects != null) _aspect(),
                     SizedBox(height: 40),
                   ],
                 ),
@@ -124,12 +124,16 @@ class _DetailTourPageState extends State<DetailTourPage> {
                       ),
                       InkWell(
                         onTap: () {
-                          setState((){
+                          setState(() {
                             isLike = !isLike;
-                            if(isLike){
-                              Provider.of<DatabaseProvider>(context,listen: false).setFavorite(touristAttraction);
-                            }else{
-                              Provider.of<DatabaseProvider>(context,listen: false).removeFavorite(touristAttraction);
+                            if (isLike) {
+                              Provider.of<DatabaseProvider>(context,
+                                      listen: false)
+                                  .setFavorite(touristAttraction);
+                            } else {
+                              Provider.of<DatabaseProvider>(context,
+                                      listen: false)
+                                  .removeFavorite(touristAttraction);
                             }
                           });
                         },
@@ -139,7 +143,9 @@ class _DetailTourPageState extends State<DetailTourPage> {
                               color: Colors.white.withOpacity(0.5),
                               shape: BoxShape.circle),
                           child: FaIcon(
-                           isLike? FontAwesomeIcons.solidHeart:FontAwesomeIcons.heart,
+                            isLike
+                                ? FontAwesomeIcons.solidHeart
+                                : FontAwesomeIcons.heart,
                             color: Colors.red,
                           ),
                         ),
@@ -262,45 +268,40 @@ class _DetailTourPageState extends State<DetailTourPage> {
           ),
           SizedBox(height: 15),
           CachedNetworkImage(
-            imageUrl: touristAttraction.imageKomik??"",
-            imageBuilder: (context, imageProvider) =>
-                Container(
-                  width: MediaQuery.of(context).size.width/2.9,
-                  height: 170,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(15),
-                      bottomRight: Radius.circular(15),
-                      topRight: Radius.circular(15),
-                      topLeft: Radius.circular(15),
-                    ),
-                    image: DecorationImage(
-                      image: imageProvider,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
+            imageUrl: touristAttraction.imageKomik ?? "",
+            imageBuilder: (context, imageProvider) => Container(
+              width: MediaQuery.of(context).size.width / 2.9,
+              height: 170,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(15),
+                  bottomRight: Radius.circular(15),
+                  topRight: Radius.circular(15),
+                  topLeft: Radius.circular(15),
                 ),
-            placeholder: (context, url) =>
-                CircularProgressIndicator(),
-            errorWidget: (context, url, error) =>
-                Icon(Icons.error),
+                image: DecorationImage(
+                  image: imageProvider,
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            placeholder: (context, url) => CircularProgressIndicator(),
+            errorWidget: (context, url, error) => Icon(Icons.error),
           ),
           SizedBox(height: 15),
           Text(
             "Description",
             style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-              color: ColorPalette.generalPrimaryColor
-            ),
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: ColorPalette.generalPrimaryColor),
           ),
           SizedBox(height: 4),
           Text(
-            "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.",
+            touristAttraction.title,
             style: TextStyle(fontSize: 18, color: ColorPalette.generalDarkGrey),
             textAlign: TextAlign.justify,
           ),
-
         ],
       ),
     );
@@ -315,55 +316,78 @@ class _DetailTourPageState extends State<DetailTourPage> {
           Text(
             "Aspect",
             style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-              color: ColorPalette.generalPrimaryColor
-            ),
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: ColorPalette.generalPrimaryColor),
           ),
           SizedBox(height: 15),
-          ListView.builder(
+          GridView.builder(
             shrinkWrap: true,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                childAspectRatio: 0.75,
+                crossAxisSpacing: 20),
             physics: NeverScrollableScrollPhysics(),
-            itemCount: dummyAspect.length,
+            itemCount: touristAttraction.aspects?.length,
             itemBuilder: (context, index) {
-              var name = dummyAspect[index];
-              return Padding(
-                padding: EdgeInsets.only(
-                    top: index == 0 ? 0 : 20,
-                    bottom: index == dummyAspect.length - 1 ? 20 : 0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(20),
-                        border: Border.all(
-                          color: ColorPalette.generalGrey,
+              var aspect = touristAttraction.aspects![index];
+              return GestureDetector(
+                onTap: () {
+                  Get.toNamed(Routes.pdfReader, arguments: aspect.value);
+                },
+                child: SizedBox(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(20),
+                          border: Border.all(
+                            color: ColorPalette.generalGrey,
+                          ),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            FaIcon(
+                              FontAwesomeIcons.peopleLine,
+                              color: ColorPalette.generalPrimaryColor,
+                              size: 15,
+                            ),
+                            SizedBox(width: 6),
+                            Text(aspect.name),
+                          ],
                         ),
                       ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          FaIcon(
-                            FontAwesomeIcons.peopleLine,
-                            color: ColorPalette.generalPrimaryColor,
-                            size: 15,
+                      SizedBox(height: 10),
+                      CachedNetworkImage(
+                        imageUrl: touristAttraction.imageKomik ?? "",
+                        imageBuilder: (context, imageProvider) => Container(
+                          width: MediaQuery.of(context).size.width / 2.9,
+                          height: 170,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(15),
+                              bottomRight: Radius.circular(15),
+                              topRight: Radius.circular(15),
+                              topLeft: Radius.circular(15),
+                            ),
+                            image: DecorationImage(
+                              image: imageProvider,
+                              fit: BoxFit.cover,
+                            ),
                           ),
-                          SizedBox(width: 6),
-                          Text(name),
-                        ],
+                        ),
+                        placeholder: (context, url) =>
+                            CircularProgressIndicator(),
+                        errorWidget: (context, url, error) => Icon(Icons.error),
                       ),
-                    ),
-                    SizedBox(height: 10),
-                    Text(
-                      "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.",
-                      style: TextStyle(fontSize: 18,color: ColorPalette.generalDarkGrey),
-                      textAlign: TextAlign.justify,
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               );
             },

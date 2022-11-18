@@ -1,5 +1,7 @@
 import 'package:hive/hive.dart';
 
+import 'object_value.dart';
+
 part 'tourist_attraction.g.dart';
 
 @HiveType(typeId: 0)
@@ -18,6 +20,8 @@ class TouristAttraction extends HiveObject{
   @HiveField(5)
   String description;
 
+  List<ObjectValue>? aspects;
+
   TouristAttraction({
     required this.name,
     required this.description,
@@ -25,5 +29,6 @@ class TouristAttraction extends HiveObject{
     required this.title,
     this.pdfPath,
     this.imageKomik,
+    this.aspects
   });
 }
