@@ -81,6 +81,9 @@ List<TouristAttraction> listTouristAttraction = [
     title: "Boru Naitang Tree as historical evidence of Violation of the Principle os Sibling Love",
     description:  "Boru Naitang Tree Area",
     image: Constants.baseAPIUrlImgDestinasi + "Pohon_Boru_Naitang.png",
+    imageKomik: Constants.baseAPIUrlImg + "naitang.png",
+    pdfPath: "assets/komiks/naitang.pdf",
+    aspects: setValueAspect('naitang'),
   ),
   TouristAttraction(
       name: "Sibea-bea Hill",
