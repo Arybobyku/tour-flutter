@@ -28,11 +28,27 @@ List<ObjectValue> setValueAspect(String name) {
 }
 
 List<TouristAttraction> listTouristAttraction = [
+
   TouristAttraction(
-      name: "Tano Ponggol Canal",
-      description: "Tano Ponggol Canal",
-      title: "Our Impression of The Tano Ponggol Canal",
-      image: Constants.baseAPIUrlImgDestinasi + "Terusan_Tano_Ponggol.jpg"),
+    name: "Huta Bolon Parbaba White Sand Beach",
+    title: "A Trip to the White Sand Beach Parbaba",
+    pdfPath: "assets/komiks/parbaban.pdf",
+    description: "Huta Bolon Parbaba White Sand Beach",
+    image: Constants.baseAPIUrlImgDestinasi + "pantai_pasir_putih_parbaba.jpg",
+    imageKomik: Constants.baseAPIUrlImg + "parbaban.png",
+    aspects: setValueAspect('parbaban'),
+  ),
+
+  TouristAttraction(
+    name: "Holbung Samosir Hill",
+    title: "When We were Camping in Holbung Hill Samosir",
+    description:  "Holbung Samosir Hill",
+    image: Constants.baseAPIUrlImgDestinasi + "Bukit_Holbung.png",
+    pdfPath: "assets/komiks/holbung.pdf",
+    imageKomik: Constants.baseAPIUrlImg + "holbung.png",
+    aspects: setValueAspect('holbung'),
+  ),
+
   TouristAttraction(
       name: "Aek Rangkat Hot Springs",
       description: "Aek Rangkat Hot Springs",
@@ -41,11 +57,8 @@ List<TouristAttraction> listTouristAttraction = [
       image: Constants.baseAPIUrlImgDestinasi + "aspek_sejarah_aek.jpg",
       imageKomik: Constants.baseAPIUrlImg + "aek_rangkat.png",
       aspects: setValueAspect('aek_rangkat')),
-  TouristAttraction(
-      name: "Liberty Malau Struggle Monument",
-      description: "Liberty Malau Struggle Monument",
-      title: "Travel to the Liberty Malau Struggle Monument, It's so Glimpse what life is like somewhere else",
-      image: Constants.baseAPIUrlImgDestinasi + "liberty_malau.jpg"),
+
+
   TouristAttraction(
     name: "Ulos Batak Huta Raja Weaving Community",
     description: "Ulos Batak Huta Raja Weaving Community",
@@ -56,26 +69,7 @@ List<TouristAttraction> listTouristAttraction = [
     imageKomik: Constants.baseAPIUrlImg + "hutaraja.png",
     aspects: setValueAspect('hutaraja'),
   ),
-  TouristAttraction(
-    name: "Huta Bolon Parbaba White Sand Beach",
-    title: "A Trip to the White Sand Beach Parbaba",
-    pdfPath: "assets/komiks/parbaban.pdf",
-    description: "Huta Bolon Parbaba White Sand Beach",
-    image: Constants.baseAPIUrlImgDestinasi + "pantai_pasir_putih_parbaba.jpg",
-    imageKomik: Constants.baseAPIUrlImg + "parbaban.png",
-    aspects: setValueAspect('parbaban'),
-  ),
-  TouristAttraction(
-      name: "Inculturative Catholic Chruch Museum",
-      title: "We are happy doing normal things, we are also excited to go to the Inculturative Chruch Museum",
-      description: "Inculturative Catholic Chruch Museum",
-      image: Constants.baseAPIUrlImgDestinasi +
-          "museum_gereja_katolik_inkulturatif.png"),
-  TouristAttraction(
-      name: "Sinatapan Prayer Tower",
-      title: "Come to Sinatapan Samosir Prayer Tower, and enjoy the Nature of Lake Toba as one of God's Miracle",
-      description:  "Sinatapan Prayer Tower",
-      image: Constants.baseAPIUrlImgDestinasi + "Menara_Doa_Sinatapan.png"),
+
   TouristAttraction(
     name: "Boru Naitang Tree Area",
     title: "Boru Naitang Tree as historical evidence of Violation of the Principle os Sibling Love",
@@ -85,20 +79,36 @@ List<TouristAttraction> listTouristAttraction = [
     pdfPath: "assets/komiks/naitang.pdf",
     aspects: setValueAspect('naitang'),
   ),
+
+  TouristAttraction(
+      name: "Sinatapan Prayer Tower",
+      title: "Come to Sinatapan Samosir Prayer Tower, and enjoy the Nature of Lake Toba as one of God's Miracle",
+      description:  "Sinatapan Prayer Tower",
+      image: Constants.baseAPIUrlImgDestinasi + "Menara_Doa_Sinatapan.png"),
+
+
+  TouristAttraction(
+      name: "Inculturative Catholic Chruch Museum",
+      title: "We are happy doing normal things, we are also excited to go to the Inculturative Chruch Museum",
+      description: "Inculturative Catholic Chruch Museum",
+      image: Constants.baseAPIUrlImgDestinasi +
+          "museum_gereja_katolik_inkulturatif.png"),
+
+  TouristAttraction(
+      name: "Tano Ponggol Canal",
+      description: "Tano Ponggol Canal",
+      title: "Our Impression of The Tano Ponggol Canal",
+      image: Constants.baseAPIUrlImgDestinasi + "Terusan_Tano_Ponggol.jpg"),
+  TouristAttraction(
+      name: "Liberty Malau Struggle Monument",
+      description: "Liberty Malau Struggle Monument",
+      title: "Travel to the Liberty Malau Struggle Monument, It's so Glimpse what life is like somewhere else",
+      image: Constants.baseAPIUrlImgDestinasi + "liberty_malau.jpg"),
   TouristAttraction(
       name: "Sibea-bea Hill",
       title: "On Sibea-bea Hill, there is a beginning and an end to all-natural sights",
       description: "Sibea-bea Hill",
       image: Constants.baseAPIUrlImgDestinasi + "bukit_sibea-bea.jpg"),
-  TouristAttraction(
-    name: "Holbung Samosir Hill",
-    title: "When We were Camping in Holbung Hill Samosir",
-    description:  "Holbung Samosir Hill",
-    image: Constants.baseAPIUrlImgDestinasi + "Bukit_Holbung.png",
-    pdfPath: "assets/komiks/holbung.pdf",
-    imageKomik: Constants.baseAPIUrlImg + "holbung.png",
-    aspects: setValueAspect('holbung'),
-  ),
 ];
 
 Kecamatan panguguran = Kecamatan(

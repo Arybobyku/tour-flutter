@@ -29,6 +29,8 @@ class _MainMenuAboutPageState extends State<MainMenuAboutPage> {
                 "Beny Octofryana Yousca Marpaung\n"
                 "Hutrialya Rifa Mudrikah\n"
                 "Indriyanti Br Simarmata\n"
+                "Prof. Ir. Nurlisa Ginting M.Sc., Ph.D\n"
+
                 "Al Febriliandi\n"
                 "Arif Al Farisyi\n"
                 "Muhammad Luthfiandi Azhar\n"

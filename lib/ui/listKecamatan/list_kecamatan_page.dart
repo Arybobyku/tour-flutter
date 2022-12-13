@@ -178,12 +178,6 @@ class _ListKecamatanPageState extends State<ListKecamatanPage> {
                                 overflow: TextOverflow.ellipsis,
                                 style: TextStyle(fontSize: 18),
                               ),
-                              Text(
-                                touristAttraction.description,
-                                maxLines: 2,
-                                overflow: TextOverflow.ellipsis,
-                                style: TextStyle(fontSize: 14),
-                              ),
                             ],
                           ),
                         ),
