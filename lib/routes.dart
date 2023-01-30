@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:jezioto/ui/detailAspect/detail_aspect_page.dart';
+import 'package:jezioto/ui/gallery/gallery_page.dart';
 import 'package:jezioto/ui/listKecamatan/list_kecamatan_page.dart';
 import 'package:jezioto/ui/listToursitAttraction/list_tourist_attraction_page.dart';
 import 'package:jezioto/ui/navigator_page.dart';
@@ -29,6 +30,7 @@ class Routes {
 
   static const String pdfReader = "/pdfReader";
   static const String webView = "/webView";
+  static const String imageGallery = "/imageGallery";
 
   static final newRoutes = <GetPage>[
     GetPage(name: navigator, page:()=>NavigatorPage()),
@@ -41,5 +43,6 @@ class Routes {
     GetPage(name: detailTour, page:()=>DetailTourPage()),
     GetPage(name: pdfReader, page:()=>PdfReaderPage()),
     GetPage(name: webView, page:()=>WebViewPage()),
+    GetPage(name: imageGallery, page:()=>GalleryPage()),
   ];
 }

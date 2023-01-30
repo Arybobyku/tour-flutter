@@ -44,6 +44,7 @@ dependencies:
   syncfusion_flutter_pdfviewer: ^20.3.47
   flutter_windowmanager: ^0.2.0
   share_plus:
+  swipe_image_gallery: ^0.8.0
 
 dev_dependencies:
   flutter_test:
@@ -61,11 +62,6 @@ flutter:
 
   assets:
     - assets/
-    - assets/aspect/aek_rangkat/
-    - assets/aspect/holbung/
-    - assets/aspect/parbaban/
-    - assets/aspect/hutaraja/
-    - assets/aspect/naitang/
     - assets/komiks/
     - images/
     - images/kabupaten/

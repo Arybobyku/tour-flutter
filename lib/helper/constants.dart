@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 
 class Constants{
   static const String baseAPIUrlImg = 'https://herpes.my.id/jezioto/images/komiks/';
+  static const String baseAPIUrlAspek = 'https://herpes.my.id/jezioto/images/aspek/';
   static const String baseAPIUrlAssets = 'https://herpes.my.id/jezioto/assets/';
   static const String baseAPIUrlImgDestinasi = 'https://herpes.my.id/jezioto/images/destinasi/';
 

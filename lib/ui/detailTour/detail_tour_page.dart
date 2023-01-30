@@ -333,7 +333,8 @@ class _DetailTourPageState extends State<DetailTourPage> {
               var aspect = touristAttraction.aspects![index];
               return GestureDetector(
                 onTap: () {
-                  Get.toNamed(Routes.pdfReader, arguments: aspect.value);
+                  // Get.toNamed(Routes.pdfReader, arguments: aspect.value);
+                  Get.toNamed(Routes.imageGallery, arguments: aspect.value);
                 },
                 child: SizedBox(
                   child: Column(
@@ -365,7 +366,7 @@ class _DetailTourPageState extends State<DetailTourPage> {
                       ),
                       SizedBox(height: 10),
                       CachedNetworkImage(
-                        imageUrl: touristAttraction.imageKomik ?? "",
+                        imageUrl: aspect.value.first ?? "",
                         imageBuilder: (context, imageProvider) => Container(
                           width: MediaQuery.of(context).size.width / 2.9,
                           height: 170,

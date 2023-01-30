@@ -110,7 +110,7 @@ class _NavigatorPageState extends State<NavigatorPage> {
     //
     // var mainMenu = await FirebaseAuth.instance.currentUser??null;
     //
-    await Future.delayed(const Duration(seconds: 5), () async {
+    await Future.delayed(const Duration(seconds: 15), () async {
       Get.offAllNamed(Routes.onBoarding);
 
       // if (mainMenu==null) {

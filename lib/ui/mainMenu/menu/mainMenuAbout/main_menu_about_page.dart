@@ -19,7 +19,6 @@ class _MainMenuAboutPageState extends State<MainMenuAboutPage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(height: 20),
-
               Text(
                 "Created and Organized By",
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
@@ -29,18 +28,19 @@ class _MainMenuAboutPageState extends State<MainMenuAboutPage> {
                 "Beny Octofryana Yousca Marpaung\n"
                 "Hutrialya Rifa Mudrikah\n"
                 "Indriyanti Br Simarmata\n"
-                "Prof. Ir. Nurlisa Ginting M.Sc., Ph.D\n"
-
                 "Al Febriliandi\n"
                 "Arif Al Farisyi\n"
                 "Muhammad Luthfiandi Azhar\n"
                 "Dwira Nirfalini Aulia\n"
-                "Anthoni Veery Mardianta",
+                "Anthoni Veery Mardianta\n"
+                "Nurlisa Ginting\n",
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 18),
               ),
               SizedBox(height: 20),
-              Divider(height: 1,),
+              Divider(
+                height: 1,
+              ),
               SizedBox(height: 20),
               Text(
                 "Pelaksanaan Penelitian TALENTA",

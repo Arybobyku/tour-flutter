@@ -15,20 +15,26 @@ List<String> dummyAspect = [
   "Cultural",
 ];
 
-List<ObjectValue> setValueAspect(String name) {
+List<ObjectValue> setValueAspect(String name,List<int> length) {
   return [
-    ObjectValue(name: 'Historis', value: 'assets/aspect/$name/Historis.pdf'),
-    ObjectValue(name: 'People', value: 'assets/aspect/$name/People.pdf'),
-    ObjectValue(name: 'Nature', value: 'assets/aspect/$name/Nature.pdf'),
-    ObjectValue(
-        name: 'Architecture', value: 'assets/aspect/$name/Architecture.pdf'),
-    ObjectValue(name: 'Social', value: 'assets/aspect/$name/Social.pdf'),
-    ObjectValue(name: 'Cultural', value: 'assets/aspect/$name/Cultural.pdf'),
+    ObjectValue(name: 'Historis', value: setAspekImage(name,'History', length[0])),
+    ObjectValue(name: 'People', value: setAspekImage(name,'People', length[1])),
+    ObjectValue(name: 'Nature', value: setAspekImage(name,'Nature', length[2])),
+    ObjectValue(name: 'Architecture', value: setAspekImage(name,'Architecture', length[3])),
+    ObjectValue(name: 'Social', value:  setAspekImage(name,'Sosial', length[4])),
+    ObjectValue(name: 'Cultural', value: setAspekImage(name,'Culture', length[5])),
   ];
 }
 
-List<TouristAttraction> listTouristAttraction = [
+List<String> setAspekImage(String name, String aspekName,int length){
+  List<String> images = [];
+  for(int i = 1;i<=length;i++){
+    images.add('${Constants.baseAPIUrlAspek}$name/$aspekName/$i.jpg');
+  }
+  return images;
+}
 
+List<TouristAttraction> listTouristAttraction = [
   TouristAttraction(
     name: "Huta Bolon Parbaba White Sand Beach",
     title: "A Trip to the White Sand Beach Parbaba",
@@ -36,19 +42,17 @@ List<TouristAttraction> listTouristAttraction = [
     description: "Huta Bolon Parbaba White Sand Beach",
     image: Constants.baseAPIUrlImgDestinasi + "pantai_pasir_putih_parbaba.jpg",
     imageKomik: Constants.baseAPIUrlImg + "parbaban.png",
-    aspects: setValueAspect('parbaban'),
+    aspects: setValueAspect('parbaban',[5,6,5,7,13,10]),
   ),
-
   TouristAttraction(
     name: "Holbung Samosir Hill",
     title: "When We were Camping in Holbung Hill Samosir",
-    description:  "Holbung Samosir Hill",
+    description: "Holbung Samosir Hill",
     image: Constants.baseAPIUrlImgDestinasi + "Bukit_Holbung.png",
     pdfPath: "assets/komiks/holbung.pdf",
     imageKomik: Constants.baseAPIUrlImg + "holbung.png",
-    aspects: setValueAspect('holbung'),
+    aspects: setValueAspect('holbung',[2,5,12,6,11,3]),
   ),
-
   TouristAttraction(
       name: "Aek Rangkat Hot Springs",
       description: "Aek Rangkat Hot Springs",
@@ -56,44 +60,45 @@ List<TouristAttraction> listTouristAttraction = [
       pdfPath: "assets/komiks/aek_rangkat.pdf",
       image: Constants.baseAPIUrlImgDestinasi + "aspek_sejarah_aek.jpg",
       imageKomik: Constants.baseAPIUrlImg + "aek_rangkat.png",
-      aspects: setValueAspect('aek_rangkat')),
-
-
+      aspects: setValueAspect('aek_rangkat',[7,2,2,12,2,1])),
   TouristAttraction(
     name: "Ulos Batak Huta Raja Weaving Community",
     description: "Ulos Batak Huta Raja Weaving Community",
-    title: "Don't be arrogant because you are in the Ulos Batak Huta Raja Weaving Community",
+    title:
+        "Don't be arrogant because you are in the Ulos Batak Huta Raja Weaving Community",
     image: Constants.baseAPIUrlImgDestinasi +
         "komunitas_tenun_ulos_batak_hutaraja.jpg",
     pdfPath: "assets/komiks/hutaraja.pdf",
     imageKomik: Constants.baseAPIUrlImg + "hutaraja.png",
-    aspects: setValueAspect('hutaraja'),
+    aspects: setValueAspect('hutaraja',[3,3,1,2,2,1]),
   ),
-
   TouristAttraction(
     name: "Boru Naitang Tree Area",
-    title: "Boru Naitang Tree as historical evidence of Violation of the Principle os Sibling Love",
-    description:  "Boru Naitang Tree Area",
+    title:
+        "Boru Naitang Tree as historical evidence of Violation of the Principle os Sibling Love",
+    description: "Boru Naitang Tree Area",
     image: Constants.baseAPIUrlImgDestinasi + "Pohon_Boru_Naitang.png",
     imageKomik: Constants.baseAPIUrlImg + "naitang.png",
     pdfPath: "assets/komiks/naitang.pdf",
-    aspects: setValueAspect('naitang'),
+    aspects: setValueAspect('naitang',[2,2,2,2,2,2]),
   ),
-
   TouristAttraction(
-      name: "Sinatapan Prayer Tower",
-      title: "Come to Sinatapan Samosir Prayer Tower, and enjoy the Nature of Lake Toba as one of God's Miracle",
-      description:  "Sinatapan Prayer Tower",
-      image: Constants.baseAPIUrlImgDestinasi + "Menara_Doa_Sinatapan.png"),
-
-
+    name: "Sinatapan Prayer Tower",
+    title:
+        "Come to Sinatapan Samosir Prayer Tower, and enjoy the Nature of Lake Toba as one of God's Miracle",
+    description: "Sinatapan Prayer Tower",
+    image: Constants.baseAPIUrlImgDestinasi + "Menara_Doa_Sinatapan.png",
+    imageKomik: Constants.baseAPIUrlImg + "menara_doa.png",
+    aspects: setValueAspect('menara_doa',[2,5,5,5,2,3]),
+    pdfPath: "assets/komiks/menara_doa.pdf",
+  ),
   TouristAttraction(
       name: "Inculturative Catholic Chruch Museum",
-      title: "We are happy doing normal things, we are also excited to go to the Inculturative Chruch Museum",
+      title:
+          "We are happy doing normal things, we are also excited to go to the Inculturative Chruch Museum",
       description: "Inculturative Catholic Chruch Museum",
       image: Constants.baseAPIUrlImgDestinasi +
           "museum_gereja_katolik_inkulturatif.png"),
-
   TouristAttraction(
       name: "Tano Ponggol Canal",
       description: "Tano Ponggol Canal",
@@ -102,11 +107,13 @@ List<TouristAttraction> listTouristAttraction = [
   TouristAttraction(
       name: "Liberty Malau Struggle Monument",
       description: "Liberty Malau Struggle Monument",
-      title: "Travel to the Liberty Malau Struggle Monument, It's so Glimpse what life is like somewhere else",
+      title:
+          "Travel to the Liberty Malau Struggle Monument, It's so Glimpse what life is like somewhere else",
       image: Constants.baseAPIUrlImgDestinasi + "liberty_malau.jpg"),
   TouristAttraction(
       name: "Sibea-bea Hill",
-      title: "On Sibea-bea Hill, there is a beginning and an end to all-natural sights",
+      title:
+          "On Sibea-bea Hill, there is a beginning and an end to all-natural sights",
       description: "Sibea-bea Hill",
       image: Constants.baseAPIUrlImgDestinasi + "bukit_sibea-bea.jpg"),
 ];

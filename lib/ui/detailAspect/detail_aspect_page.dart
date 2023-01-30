@@ -43,7 +43,7 @@ class _DetailAspectPageState extends State<DetailAspectPage> {
                         ? GestureDetector(
                             onTap: () {
                               var aspectPath = touristAttraction.aspects?.where((element) => element.name==aspect).first;
-                              Get.toNamed(Routes.pdfReader,arguments: aspectPath!.value);
+                              Get.toNamed(Routes.imageGallery, arguments: aspectPath!.value);
                             },
                             child: Padding(
                               padding: const EdgeInsets.only(top: 15),
