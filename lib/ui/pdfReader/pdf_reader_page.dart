@@ -16,7 +16,7 @@ class _PdfReaderPageState extends State<PdfReaderPage> {
 
   @override
   void initState() {
-    // disabledCapture();
+    disabledCapture();
     super.initState();
   }
 
