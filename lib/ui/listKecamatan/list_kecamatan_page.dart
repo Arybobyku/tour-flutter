@@ -1,12 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:jezioto/helper/color_palette.dart';
 import 'package:jezioto/helper/dummy.dart';
 import 'package:jezioto/model/tourist_attraction.dart';
 import 'package:jezioto/routes.dart';
 import 'package:jezioto/ui/widget/button_rounded.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class ListKecamatanPage extends StatefulWidget {
   const ListKecamatanPage({Key? key}) : super(key: key);
@@ -18,6 +18,14 @@ class ListKecamatanPage extends StatefulWidget {
 class _ListKecamatanPageState extends State<ListKecamatanPage> {
   bool isFromOnBoarding = Get.arguments ?? false;
 
+  final YoutubePlayerController _controller = YoutubePlayerController(
+    initialVideoId: '1XJmkB04F70',
+    flags: const YoutubePlayerFlags(
+      autoPlay: true,
+      mute: false,
+    ),
+  );
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,6 +35,20 @@ class _ListKecamatanPageState extends State<ListKecamatanPage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               _map(),
+              SizedBox(height: 10),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Text(
+                  panguguran.name + " City",
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: ColorPalette.generalPrimaryColor,
+                  ),
+                ),
+              ),
+              SizedBox(height: 10),
+              _video(),
               SizedBox(height: 20),
               _body(),
               SizedBox(height: 20),
@@ -73,6 +95,16 @@ class _ListKecamatanPageState extends State<ListKecamatanPage> {
     );
   }
 
+  Widget _video() {
+    return Column(
+      children: [
+        YoutubePlayer(
+          controller: _controller,
+        ),
+      ],
+    );
+  }
+
   Widget _body() {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 20),
@@ -80,15 +112,6 @@ class _ListKecamatanPageState extends State<ListKecamatanPage> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            panguguran.name,
-            style: TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-              color: ColorPalette.generalPrimaryColor,
-            ),
-          ),
-          SizedBox(height: 6),
           Container(
             padding: EdgeInsets.all(10),
             decoration: BoxDecoration(

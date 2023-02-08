@@ -366,7 +366,7 @@ class _DetailTourPageState extends State<DetailTourPage> {
                       ),
                       SizedBox(height: 10),
                       CachedNetworkImage(
-                        imageUrl: aspect.value.first ?? "",
+                        imageUrl: aspect.value.first,
                         imageBuilder: (context, imageProvider) => Container(
                           width: MediaQuery.of(context).size.width / 2.9,
                           height: 170,
